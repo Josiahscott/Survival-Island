@@ -1,32 +1,72 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 18.9418, 1, 19.8206 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 100, 0.5, 100 )
 
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 18.9418, 1, 19.8206 )
+
 [sub_resource type="CapsuleMesh" id=3]
+
+[sub_resource type="CapsuleShape" id=4]
+height = 1.06067
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 5, 5, 5 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 2.50711, 2.5, 2.51343 )
+
+[sub_resource type="PanoramaSky" id=8]
+
+[sub_resource type="Environment" id=7]
+background_sky = SubResource( 8 )
+background_color = Color( 0, 0.811765, 1, 1 )
+ambient_light_energy = 0.1
 
 [node name="Spatial" type="Spatial"]
 
-[node name="KinematicBody" type="KinematicBody" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.972033, 0 )
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="Ground2" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170261, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
+[node name="Ground" type="KinematicBody" parent="Ground2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.170261, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground2/Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.972033, 0 )
+shape = SubResource( 1 )
+
+[node name="CIRCLE" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.401049, -15.0709 )
 mesh = SubResource( 3 )
 material/0 = null
 
+[node name="KinematicBody" type="KinematicBody" parent="CIRCLE"]
+
+[node name="CollisionShape" type="CollisionShape" parent="CIRCLE/KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0289364, 0 )
+shape = SubResource( 4 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.724567, 0 )
+
+[node name="SQAURE" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.8931 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="KinematicBody" type="KinematicBody" parent="SQAURE"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SQAURE/KinematicBody"]
+shape = SubResource( 6 )
+
+[node name="Sun" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.012601, 0.999921, 0, -0.999921, -0.012601, 0, 18.5443, -18.463 )
+spot_range = 60.0733
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )
