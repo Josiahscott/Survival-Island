@@ -3,7 +3,7 @@ extends KinematicBody
 #Physics
 var moveSpeed : float = 5.0
 var gravity = 9.8
-var jump = 5
+var jump = 10
 var capncrunch = Vector3()
 #Camera lock
 var minLookAngle : float = -90.0

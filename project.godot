@@ -8,8 +8,44 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "AtmScatter",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/Sky/AtmScatter.gd"
+}, {
+"base": "Reference",
+"class": "DateTimeUtil",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/Util/DateTimeUtil.gd"
+}, {
+"base": "Reference",
+"class": "OrbitalElements",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/TimeOfDay/OrbitalElements.gd"
+}, {
+"base": "Node",
+"class": "SkyManager",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/Sky/SkyManager.gd"
+}, {
+"base": "Reference",
+"class": "SkyMath",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/Util/SkyMath.gd"
+}, {
+"base": "Node",
+"class": "TimeOfDay",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/TimeOfDay/TimeOfDay.gd"
+} ]
 _global_script_class_icons={
+"AtmScatter": "",
+"DateTimeUtil": "",
+"OrbitalElements": "",
+"SkyManager": "",
+"SkyMath": "",
+"TimeOfDay": ""
 }
 
 [application]
@@ -22,6 +58,10 @@ config/icon="res://icon.png"
 
 window/size/width=1920
 window/size/height=1080
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/jc.godot.universal-sky/plugin.cfg" )
 
 [input]
 
