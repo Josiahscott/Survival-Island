@@ -8,46 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Reference",
-"class": "AtmScatter",
-"language": "GDScript",
-"path": "res://addons/jc.godot.universal-sky/Code/Sky/AtmScatter.gd"
-}, {
-"base": "Reference",
-"class": "DateTimeUtil",
-"language": "GDScript",
-"path": "res://addons/jc.godot.universal-sky/Code/Util/DateTimeUtil.gd"
-}, {
-"base": "Reference",
-"class": "OrbitalElements",
-"language": "GDScript",
-"path": "res://addons/jc.godot.universal-sky/Code/TimeOfDay/OrbitalElements.gd"
-}, {
-"base": "Node",
-"class": "SkyManager",
-"language": "GDScript",
-"path": "res://addons/jc.godot.universal-sky/Code/Sky/SkyManager.gd"
-}, {
-"base": "Reference",
-"class": "SkyMath",
-"language": "GDScript",
-"path": "res://addons/jc.godot.universal-sky/Code/Util/SkyMath.gd"
-}, {
-"base": "Node",
-"class": "TimeOfDay",
-"language": "GDScript",
-"path": "res://addons/jc.godot.universal-sky/Code/TimeOfDay/TimeOfDay.gd"
-} ]
-_global_script_class_icons={
-"AtmScatter": "",
-"DateTimeUtil": "",
-"OrbitalElements": "",
-"SkyManager": "",
-"SkyMath": "",
-"TimeOfDay": ""
-}
-
 [application]
 
 config/name="Survival Island"
@@ -97,5 +57,5 @@ jump={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
+environment/default_clear_color=Color( 0.301961, 0.301961, 0.301961, 1 )
 environment/default_environment="res://default_env.tres"
