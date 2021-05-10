@@ -2,9 +2,9 @@ extends KinematicBody
 
 #Physics
 var moveSpeed : float = 5.0
-var gravity = 9.8
-var jump = 5
-var capncrunch = Vector3()
+var gravity = 20
+var jump = 7.5
+var jumpgravity = Vector3()
 #Camera lock
 var minLookAngle : float = -90.0
 var maxLookAngle : float = 90.0
@@ -52,12 +52,12 @@ func _physics_process(delta):
 	vel = move_and_slide(vel, Vector3.UP)
 	
 	if not is_on_floor():
-		capncrunch.y -= gravity * delta
+		jumpgravity.y -= gravity * delta
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		capncrunch.y = jump
+		jumpgravity.y = jump
 		
-	move_and_slide(capncrunch, Vector3.UP)
+	move_and_slide(jumpgravity, Vector3.UP)
 	
 func _process(delta):
 	
