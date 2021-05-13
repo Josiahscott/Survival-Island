@@ -1,76 +1,78 @@
 extends KinematicBody
 
-#Physics
-var moveSpeed : float = 5.0
-var gravity = 20
-var jump = 7.5
-var jumpgravity = Vector3()
-#Camera lock
-var minLookAngle : float = -90.0
-var maxLookAngle : float = 90.0
-var lookSensitivity : float = 10.0
+var speed = 1
+var acceleration = 10
+var gravity = 0.08
+var jump = 1.2
 
-#Vectors
-var vel : Vector3 = Vector3()
-var mouseDelta : Vector2 = Vector2()
+var mouse_sensitivity = 0.2
 
-#Components
-onready var camera : Camera = get_node("Camera")
-onready var meshinstance : Spatial = get_node("Camera/MeshInstance")
+var direction = Vector3()
+var velocity = Vector3()
+var fall = Vector3() 
+var vvel = Vector3()
+var inertia
+var prev_pos
 
-func _ready ():
+onready var head = $Head
+onready var gc = $GroundCast
+
+func _ready():
+	prev_pos = global_transform.origin
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _physics_process(delta):
-	vel.x = 0
-	vel.y = 0
-	
-	var input = Vector2()
-	
-	#Movement inputs
-	if Input.is_action_pressed("move_forward"):
-		input.y -= 1
-	if Input.is_action_pressed("move_backward"):
-		input.y += 1
-	if Input.is_action_pressed("move_left"):
-		input.x -= 1
-	if Input.is_action_pressed("move_right"):
-		input.x += 1
-		
-	input = input.normalized()
-	
-	var forward = global_transform.basis.z
-	var right = global_transform.basis.x
-	
-	var relativeDir = (forward * input.y + right * input.x)
-	
-	vel.x = relativeDir.x * moveSpeed
-	vel.z = relativeDir.z * moveSpeed
-	
-	vel.y -= gravity * delta
-	
-	vel = move_and_slide(vel, Vector3.UP)
-	
-	if not is_on_floor():
-		jumpgravity.y -= gravity * delta
-		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		jumpgravity.y = jump
-		
-	move_and_slide(jumpgravity, Vector3.UP)
-	
-func _process(delta):
-	
-	camera.rotation_degrees.x -= mouseDelta.y * lookSensitivity * delta
-	
-	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, minLookAngle, maxLookAngle)
-	
-	rotation_degrees.y -= mouseDelta.x * lookSensitivity * delta
-	
-	mouseDelta = Vector2()
-	
 func _input(event):
 	
 	if event is InputEventMouseMotion:
-		mouseDelta = event.relative
+		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity)) 
+		head.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity)) 
+		head.rotation.x = clamp(head.rotation.x, deg2rad(-90), deg2rad(90))
+
+func _physics_process(delta):
+	
+	var fps = Performance.get_monitor(Performance.TIME_FPS)
+	
+	direction = Vector3()
+	
+	if Input.is_action_pressed("move_forward"):
+	
+		direction -= transform.basis.z
+	
+	elif Input.is_action_pressed("move_backward"):
 		
+		direction += transform.basis.z
+		
+	if Input.is_action_pressed("move_left"):
+		
+		direction -= transform.basis.x			
+		
+	elif Input.is_action_pressed("move_right"):
+		
+		direction += transform.basis.x
+	
+	if Input.is_action_just_pressed("sprint"):
+		speed = 1.5
+	if Input.is_action_just_released("sprint"):
+		speed = 1
+
+	
+	
+	
+	inertia = (prev_pos - global_transform.origin).length() * fps / speed 
+	direction = direction.normalized() * speed
+	direction += direction * (1.5 - inertia)
+	direction.y = vvel.y 
+	
+	if not is_on_floor():
+		vvel.y -= gravity
+	else:
+		vvel.y = -0.1
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		vvel.y = jump
+		move_and_slide(vvel, Vector3.UP) 
+	
+	prev_pos = global_transform.origin
+	
+	move_and_slide_with_snap(direction, Vector3.DOWN, Vector3.UP, true, 7, 0.8) 
