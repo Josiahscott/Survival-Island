@@ -76,3 +76,8 @@ func _physics_process(delta):
 	prev_pos = global_transform.origin
 	
 	move_and_slide_with_snap(direction, Vector3.DOWN, Vector3.UP, true, 7, 0.8) 
+
+func _on_Area_area_entered(area):
+	if area.get_parent().filename == "":
+		PlayerStats.change_health(-5)
+		area.get_parent().queue_free()
