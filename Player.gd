@@ -50,14 +50,19 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		
 		direction += transform.basis.x
-	
-	if Input.is_action_just_pressed("sprint"):
+	if PlayerStats.water > 0 and PlayerStats.food > 0 and Input.is_action_just_pressed("sprint"):
 		speed = 1.5
 	if Input.is_action_just_released("sprint"):
 		speed = 1
-
+	if Input.is_action_pressed("sprint"):
+		PlayerStats.change_water(-0.1)
+		PlayerStats.change_food(-0.03)
+	if PlayerStats.get_water() <= 0:
+		PlayerStats.change_health(-0.01)
 	
-	
+	if int(PlayerStats.get_health()) <= 0:
+		get_tree().change_scene("res://Death.tscn")
+		
 	
 	inertia = (prev_pos - global_transform.origin).length() * fps / speed 
 	direction = direction.normalized() * speed
@@ -78,6 +83,10 @@ func _physics_process(delta):
 	move_and_slide_with_snap(direction, Vector3.DOWN, Vector3.UP, true, 7, 0.8) 
 
 func _on_Area_area_entered(area):
+	if area.get_parent().filename == "res://Enemy1.tscn":
+		PlayerStats.change_health(-5)
+
 	if area.get_parent().filename == "":
 		PlayerStats.change_health(-5)
 		area.get_parent().queue_free()
+
