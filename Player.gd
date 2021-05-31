@@ -36,11 +36,13 @@ func _physics_process(delta):
 	direction = Vector3()
 	
 	if Input.is_action_pressed("move_forward"):
-	
+		PlayerStats.change_water(-0.001)
+		PlayerStats.change_food(-0.0003)
 		direction -= transform.basis.z
 	
 	elif Input.is_action_pressed("move_backward"):
-		
+		PlayerStats.change_water(-0.001)
+		PlayerStats.change_food(-0.0003)
 		direction += transform.basis.z
 		
 	if Input.is_action_pressed("move_left"):
@@ -60,6 +62,8 @@ func _physics_process(delta):
 	if PlayerStats.get_water() <= 0:
 		PlayerStats.change_health(-0.01)
 	
+	if int(PlayerStats.get_health()) <= 20:
+		pass #RED BLOOD USERINTERFACE
 	if int(PlayerStats.get_health()) <= 0:
 		get_tree().change_scene("res://Death.tscn")
 		
@@ -81,12 +85,3 @@ func _physics_process(delta):
 	prev_pos = global_transform.origin
 	
 	move_and_slide_with_snap(direction, Vector3.DOWN, Vector3.UP, true, 7, 0.8) 
-
-func _on_Area_area_entered(area):
-	if area.get_parent().filename == "res://Enemy1.tscn":
-		PlayerStats.change_health(-5)
-
-	if area.get_parent().filename == "":
-		PlayerStats.change_health(-5)
-		area.get_parent().queue_free()
-
