@@ -1,10 +1,14 @@
 extends KinematicBody
 
+export var speed = 100
 var target
 
-func _process(delta):
+func _physics_process(delta):
 	if target:
 		look_at(target.global_transform.origin, Vector3.UP)
+		rotation.x = 0
+		rotation.z = 0
+		move_to_target(delta)
 
 func _on_Area_body_entered(body):
 	print(body.name + "entered")
@@ -21,4 +25,10 @@ func _on_Area2_body_entered(body):
 	if body.is_in_group("Player"):
 		PlayerStats.change_health(-5)
 
-#https://www.youtube.com/watch?v=OSYehj6oa3U&t=1109s&ab_channel=UnchartedTerritoriesUnchartedTerritories
+
+func move_to_target(delta):
+	var direction = (target.transform.origin - transform.origin).normalized()
+	move_and_slide(direction * speed * delta, Vector3.UP)
+
+
+#https://www.youtube.com/watch?v=Y_2oiLjOx54&ab_channel=CodewithTomCodewithTom

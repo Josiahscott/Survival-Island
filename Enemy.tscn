@@ -9,9 +9,11 @@
 [sub_resource type="CapsuleShape" id=3]
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 8.43251, 8.03493, 2.30455 )
+extents = Vector3( 33.9866, 31.5359, 2.30455 )
 
 [sub_resource type="CapsuleShape" id=5]
+radius = 1.05988
+height = 1.39525
 
 [node name="Enemy" type="KinematicBody"]
 script = ExtResource( 1 )
