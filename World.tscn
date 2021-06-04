@@ -13,7 +13,7 @@ background_color = Color( 0.72549, 0.956863, 1, 1 )
 [node name="Spatial" type="Spatial"]
 
 [node name="Water" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.02956, 11.5258 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.814281, 11.5258 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -29,12 +29,12 @@ omni_shadow_mode = 0
 [node name="Player" parent="." groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, 2.4841, 14.5431, -21.4645 )
+transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, 2.4841, 3.93204, -21.4645 )
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -12.9095, 2.69748, -26.8995 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.9134, 4.33575, -26.8995 )
 
 [node name="Island 1" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
