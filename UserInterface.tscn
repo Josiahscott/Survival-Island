@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UserInterface.gd" type="Script" id=1]
+[ext_resource path="res://heart.png" type="Texture" id=2]
+[ext_resource path="res://hamburger.png" type="Texture" id=3]
+[ext_resource path="res://drop.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.184314, 0.184314, 1 )
@@ -85,6 +88,33 @@ custom_styles/fg = SubResource( 4 )
 custom_styles/bg = SubResource( 2 )
 value = 50.0
 percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Food" type="TextureRect" parent="."]
+margin_left = 755.85
+margin_top = 899.794
+margin_right = 795.85
+margin_bottom = 939.794
+texture = ExtResource( 3 )
+
+[node name="Heart" type="TextureRect" parent="."]
+margin_left = 755.859
+margin_top = 920.955
+margin_right = 1267.86
+margin_bottom = 1432.96
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Water" type="TextureRect" parent="."]
+margin_left = 957.557
+margin_top = 900.225
+margin_right = 997.557
+margin_bottom = 940.225
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
