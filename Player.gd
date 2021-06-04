@@ -1,5 +1,5 @@
 extends KinematicBody
-
+#hi
 var speed = 0.5
 var acceleration = 10
 var gravity = 0.02
