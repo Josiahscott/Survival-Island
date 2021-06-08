@@ -85,3 +85,11 @@ func _physics_process(delta):
 	prev_pos = global_transform.origin
 	
 	move_and_slide_with_snap(direction, Vector3.DOWN, Vector3.UP, true, 7, 0.8) 
+	
+	if Input.is_action_pressed("left_click"):
+		pass
+#		$AnimationPlayer.Play("")
+
+	if Input.is_action_pressed("right_click"):
+		pass
+
