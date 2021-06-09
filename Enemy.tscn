@@ -44,6 +44,12 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 5 )
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Launcher" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01425, -1.46232 )
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
 [connection signal="area_entered" from="Area2" to="." method="_on_Area2_area_entered"]

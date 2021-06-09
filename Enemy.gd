@@ -2,8 +2,6 @@ extends KinematicBody
 
 export var speed = 100
 var target
-var can_shoot = false
-
 var velocity = Vector3.ZERO
 var gravity = 0
 
@@ -17,18 +15,17 @@ func _physics_process(delta):
 	velocity.y -= gravity *delta
 	velocity = move_and_slide(velocity, Vector3.UP)
 
+
 func _on_Area_body_entered(body):
 	print(body.name + "entered")
 	if body.is_in_group("Player"):
 		target = body
-		can_shoot = true
-
 
 func _on_Area_body_exited(body):
 	print(body.name + "exited")
 	if body.is_in_group("Player"):
 		target = null
-		can_shoot = false
+
 
 func _on_Area2_body_entered(body):
 	if body.is_in_group("Player"):
