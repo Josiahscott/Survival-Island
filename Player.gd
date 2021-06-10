@@ -68,6 +68,7 @@ func _physics_process(delta):
 		get_tree().change_scene("res://Death.tscn")
 		
 	
+	
 	inertia = (prev_pos - global_transform.origin).length() * fps / speed 
 	direction = direction.normalized() * speed
 	direction += direction * (1.5 - inertia)
