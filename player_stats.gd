@@ -25,7 +25,7 @@ func change_food(amount):
 	
 func change_water(amount):
 	water += amount
-	water = clamp(water,0, water)
+	water = clamp(water,0, water_max)
 
 func get_health():
 	return health

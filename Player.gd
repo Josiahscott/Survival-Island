@@ -21,7 +21,10 @@ func _ready():
 	prev_pos = global_transform.origin
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
+#	if Input.is_action_pressed("escape"):
+#		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	
 func _input(event):
 	
 	if event is InputEventMouseMotion:
