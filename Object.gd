@@ -1,6 +1,7 @@
 extends Area
 var bodies
 var player = null
+var interact_text = "Press E to Drink"
 
 func _process(delta):
 	if player!= null:

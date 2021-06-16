@@ -13,7 +13,7 @@ var fall = Vector3()
 var vvel = Vector3()
 var inertia
 var prev_pos
-
+onready var ray = $Head/InteractRay
 onready var head = $Head
 onready var gc = $GroundCast
 
@@ -32,8 +32,18 @@ func _input(event):
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity)) 
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-90), deg2rad(90))
 
+func check_ray():
+	if ray.is_colliding():
+		var body = ray.get_collider().get_parent()
+		print("colliding")
+		if body.is_in_group("Interactable"):
+			print("hitting interactable")
+			PlayerStats.text_display = body.interact_text
+	else:
+		PlayerStats.text_display = ""
+
 func _physics_process(delta):
-	
+	check_ray()
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 	
 	direction = Vector3()

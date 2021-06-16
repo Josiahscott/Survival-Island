@@ -7,6 +7,8 @@ var food_max
 var water
 var water_max
 
+var text_display = ""
+
 func _ready():
 	health = 100
 	health_max = 100
@@ -35,3 +37,6 @@ func get_food():
 
 func get_water():
 	return water
+
+func get_text_display():
+	return text_display
