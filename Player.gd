@@ -35,9 +35,7 @@ func _input(event):
 func check_ray():
 	if ray.is_colliding():
 		var body = ray.get_collider().get_parent()
-		print("colliding")
 		if body.is_in_group("Interactable"):
-			print("hitting interactable")
 			PlayerStats.text_display = body.interact_text
 	else:
 		PlayerStats.text_display = ""

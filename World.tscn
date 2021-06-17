@@ -46,12 +46,9 @@ omni_shadow_mode = 0
 [node name="Player" parent="." groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -52.4203, 7.52119, -53.4648 )
+transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -49.9757, 6.47012, -53.4648 )
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
-
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.9134, 4.33575, -26.8995 )
 
 [node name="Island 1" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
@@ -60,7 +57,7 @@ transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -56.3351, 6.34492, -56.5353 )
 
 [node name="Spatial" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -47.3787, 6.25457, -54.9667 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -47.3787, 6.17205, -54.9667 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 11 )
@@ -86,6 +83,7 @@ margin_bottom = 81.0
 text = "Press E to use"
 
 [node name="Decoration" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00416756, 0 )
 
 [node name="SM_Prop_Meat_02" parent="Decoration" instance=ExtResource( 20 )]
 transform = Transform( 0.12, 0, 0, 0, 0.104911, 0.0582559, 0, -0.0582559, 0.104911, -57.2691, 6.26455, -47.8438 )
@@ -151,7 +149,7 @@ transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495,
 transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -58.3649, 6.43843, -44.7122 )
 
 [node name="Huts" type="Spatial" parent="."]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 18, -21 )
+transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 17.9912, -21 )
 
 [node name="SM_Bld_Hut_01" parent="Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.352887, 0, 0.935668, 0, 1, 0, -0.935668, 0, 0.352887, -459.704, -95.9946, -208.472 )
@@ -201,6 +199,7 @@ transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 17, -19 )
 transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 17, -18 )
 
 [node name="Trees" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0723732, 0 )
 
 [node name="SM_Env_TreePine_03_Snow" parent="Trees" instance=ExtResource( 10 )]
 transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.7779, 6.64168, -45.2443 )

@@ -13,3 +13,9 @@ func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):
 		print("adding player")
 		player = body
+		
+
+func _on_Area_body_exited(body):
+	if body.is_in_group("Player"):
+		print("player leaving")
+		player = null

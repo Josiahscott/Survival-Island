@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 
@@ -7,9 +7,6 @@
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="CapsuleShape" id=3]
-
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 33.9866, 31.5359, 2.30455 )
 
 [sub_resource type="CapsuleShape" id=5]
 radius = 1.05988
@@ -32,12 +29,6 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 3 )
 
-[node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 4 )
-
 [node name="Area2" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area2"]
@@ -50,7 +41,5 @@ one_shot = true
 [node name="Launcher" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01425, -1.46232 )
 
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
-[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
 [connection signal="area_entered" from="Area2" to="." method="_on_Area2_area_entered"]
 [connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]
