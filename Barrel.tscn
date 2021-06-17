@@ -9,7 +9,7 @@ extents = Vector3( 0.564543, 1, 1.22875 )
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.424243, 0.100019, 0.44902 )
 
-[node name="Area" type="Area" groups=[
+[node name="Barrel" type="Area" groups=[
 "Interactable",
 ]]
 script = ExtResource( 1 )

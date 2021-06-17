@@ -17,10 +17,10 @@
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Wep_Sword_01.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Wep_Axe_01.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Logpile_01.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Collision AdventureModelsSynty/SM_Env_CampFire_01.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_01.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_02.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Object.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Barrel.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Campfire.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -56,7 +56,7 @@ transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -56.3351, 6.34492, -56.5353 )
 
-[node name="Spatial" parent="." instance=ExtResource( 21 )]
+[node name="Barrel" parent="." instance=ExtResource( 21 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -47.3787, 6.17205, -54.9667 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -86,7 +86,7 @@ text = "Press E to use"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00416756, 0 )
 
 [node name="SM_Prop_Meat_02" parent="Decoration" instance=ExtResource( 20 )]
-transform = Transform( 0.12, 0, 0, 0, 0.104911, 0.0582559, 0, -0.0582559, 0.104911, -57.2691, 6.26455, -47.8438 )
+transform = Transform( 0.12, 0, 0, 0, 0.104911, 0.0582559, 0, -0.0582559, 0.104911, -57.2691, 6.25652, -47.6811 )
 
 [node name="SM_Bld_Fence_01" parent="Decoration" instance=ExtResource( 12 )]
 transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.1767, 6.47186, -46.5225 )
@@ -118,11 +118,8 @@ transform = Transform( -0.108564, -0.0434101, -0.0270093, -0.048544, 0.107415, 0
 [node name="SM_Prop_Logpile_01" parent="Decoration" instance=ExtResource( 17 )]
 transform = Transform( -0.0176192, 0, 0.1187, 0, 0.12, 0, -0.1187, 0, -0.0176192, -59.7277, 6.20148, -46.3953 )
 
-[node name="SM_Env_CampFire_01" parent="Decoration" instance=ExtResource( 18 )]
-transform = Transform( 0.359878, -0.00937303, -8.86686e-05, 0.00937345, 0.359862, 0.00340428, 0, -0.00340544, 0.359984, -57.3366, 6.24104, -47.6543 )
-
 [node name="SM_Prop_Meat_01" parent="Decoration" instance=ExtResource( 19 )]
-transform = Transform( 0.119766, 0.00653124, -0.00365286, -0.00655804, 0.119818, -0.00079191, 0.00360422, 0.000990001, 0.119942, -57.2869, 6.27478, -47.781 )
+transform = Transform( 0.119766, 0.00653124, -0.00365286, -0.00655804, 0.119818, -0.00079191, 0.00360422, 0.000990001, 0.119942, -57.2869, 6.25395, -47.7469 )
 
 [node name="SM_Bld_Fence_04" parent="Decoration" instance=ExtResource( 12 )]
 transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.6531, 6.60715, -44.7117 )
@@ -147,6 +144,9 @@ transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495,
 
 [node name="SM_Bld_Fence_11" parent="Decoration" instance=ExtResource( 12 )]
 transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -58.3649, 6.43843, -44.7122 )
+
+[node name="Campfire" parent="Decoration" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.3569, 6.22642, -47.6423 )
 
 [node name="Huts" type="Spatial" parent="."]
 transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 17.9912, -21 )
