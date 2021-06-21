@@ -9,7 +9,7 @@
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Env_TreeDead_01.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Env_TreeDead_02_Snow.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Env_TreeDead_02.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Collision AdventureModelsSynty/SM_Env_TreePine_03_Snow.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Collision AdventureModelsSynty/SM_Env_TreePine_03.tscn" type="PackedScene" id=10]
 [ext_resource path="res://CanvasLayer.gd" type="Script" id=11]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Bld_Fence_01.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Barrel_02.tscn" type="PackedScene" id=13]
@@ -17,20 +17,20 @@
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Wep_Sword_01.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Wep_Axe_01.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Logpile_01.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Collision AdventureModelsSynty/SM_Env_CampFire_01.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_01.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_02.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Barrel.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Campfire.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Object.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
 background_color = Color( 0.72549, 0.956863, 1, 1 )
-ambient_light_sky_contribution = 0.0
 
 [node name="Spatial" type="Spatial"]
 
 [node name="Water" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67918, 11.5258 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814281, 11.5258 )
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -46,18 +46,21 @@ omni_shadow_mode = 0
 [node name="Player" parent="." groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -49.9757, 6.47012, -53.4648 )
+transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -29.5563, 2.48393, -31.2573 )
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
 
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.9134, 4.33575, -26.8995 )
+
 [node name="Island 1" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -56.3351, 6.34492, -56.5353 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3806, 1.71256, -41.7287 )
 
-[node name="Barrel" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -47.3787, 6.17205, -54.9667 )
+[node name="Spatial" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -39.7751, 1.55262, -41.9085 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 11 )
@@ -83,10 +86,10 @@ margin_bottom = 81.0
 text = "Press E to use"
 
 [node name="Decoration" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00416756, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3182, -4.31946, 26.479 )
 
 [node name="SM_Prop_Meat_02" parent="Decoration" instance=ExtResource( 20 )]
-transform = Transform( 0.12, 0, 0, 0, 0.104911, 0.0582559, 0, -0.0582559, 0.104911, -57.2691, 6.25652, -47.6811 )
+transform = Transform( 0.12, 0, 0, 0, 0.104911, 0.0582559, 0, -0.0582559, 0.104911, -57.2691, 6.54398, -47.8438 )
 
 [node name="SM_Bld_Fence_01" parent="Decoration" instance=ExtResource( 12 )]
 transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.1767, 6.47186, -46.5225 )
@@ -95,22 +98,22 @@ transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.04161
 transform = Transform( 0.0776435, 0, 0.0914958, 0, 0.12, 0, -0.0914958, 0, 0.0776435, -54.9929, 6.47186, -46.8299 )
 
 [node name="SM_Bld_Fence_03" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.3388, 6.53834, -45.5716 )
+transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.3388, 6.45909, -45.5716 )
 
 [node name="SM_Prop_Barrel_02" parent="Decoration" instance=ExtResource( 13 )]
-transform = Transform( -0.0141814, 0, -0.119159, 0, 0.12, 0, 0.119159, 0, -0.0141814, -56.0241, 6.55334, -44.8239 )
+transform = Transform( -0.0141814, 0, -0.119159, 0, 0.12, 0, 0.119159, 0, -0.0141814, -56.0241, 6.35141, -44.8239 )
 
 [node name="SM_Prop_Crate_01" parent="Decoration" instance=ExtResource( 14 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.54197, -44.7516 )
+transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.34844, -44.7516 )
 
 [node name="SM_Prop_Crate_02" parent="Decoration" instance=ExtResource( 14 )]
-transform = Transform( 0.0909611, 0.0782693, 0, -0.0782693, 0.0909611, 0, 0, 0, 0.12, -56.9266, 6.56183, -44.7571 )
+transform = Transform( 0.0909611, 0.0782693, 0, -0.0782693, 0.0909611, 0, 0, 0, 0.12, -56.9266, 6.3683, -44.7571 )
 
 [node name="SM_Prop_Crate_03" parent="Decoration" instance=ExtResource( 14 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.63298, -44.7516 )
+transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.43945, -44.7516 )
 
 [node name="SM_Wep_Sword_01" parent="Decoration" instance=ExtResource( 15 )]
-transform = Transform( -0.0660399, -0.0450181, 0.0895103, 0.0038765, 0.105977, 0.0561598, -0.100118, 0.0337981, -0.0568681, -57.5588, 6.49125, -44.7323 )
+transform = Transform( -0.0966118, -0.0305367, 0.0642933, 0.0038765, 0.105977, 0.0561598, -0.0710706, 0.0472911, -0.0843353, -57.6366, 6.31828, -44.7622 )
 
 [node name="SM_Wep_Axe_01" parent="Decoration" instance=ExtResource( 16 )]
 transform = Transform( -0.108564, -0.0434101, -0.0270093, -0.048544, 0.107415, 0.0224809, 0.0160445, 0.0312646, -0.114739, -59.6099, 6.24581, -46.403 )
@@ -118,11 +121,14 @@ transform = Transform( -0.108564, -0.0434101, -0.0270093, -0.048544, 0.107415, 0
 [node name="SM_Prop_Logpile_01" parent="Decoration" instance=ExtResource( 17 )]
 transform = Transform( -0.0176192, 0, 0.1187, 0, 0.12, 0, -0.1187, 0, -0.0176192, -59.7277, 6.20148, -46.3953 )
 
+[node name="SM_Env_CampFire_01" parent="Decoration" instance=ExtResource( 18 )]
+transform = Transform( 0.359878, -0.00937303, -8.86686e-05, 0.00937345, 0.359862, 0.00340428, 0, -0.00340544, 0.359984, -57.3366, 6.52047, -47.6543 )
+
 [node name="SM_Prop_Meat_01" parent="Decoration" instance=ExtResource( 19 )]
-transform = Transform( 0.119766, 0.00653124, -0.00365286, -0.00655804, 0.119818, -0.00079191, 0.00360422, 0.000990001, 0.119942, -57.2869, 6.25395, -47.7469 )
+transform = Transform( 0.119766, 0.00653124, -0.00365286, -0.00655804, 0.119818, -0.00079191, 0.00360422, 0.000990001, 0.119942, -57.2869, 6.55421, -47.781 )
 
 [node name="SM_Bld_Fence_04" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.6531, 6.60715, -44.7117 )
+transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.6531, 6.39232, -44.7117 )
 
 [node name="SM_Bld_Fence_05" parent="Decoration" instance=ExtResource( 12 )]
 transform = Transform( -0.108271, 0, -0.0517447, 0, 0.12, 0, 0.0517447, 0, -0.108271, -56.8252, 6.19837, -50.5717 )
@@ -143,51 +149,49 @@ transform = Transform( -0.0120164, 0, 0.119397, 0, 0.12, 0, -0.119397, 0, -0.012
 transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -59.2037, 6.29319, -45.5714 )
 
 [node name="SM_Bld_Fence_11" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -58.3649, 6.43843, -44.7122 )
-
-[node name="Campfire" parent="Decoration" instance=ExtResource( 22 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.3569, 6.22642, -47.6423 )
+transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -58.3649, 6.43094, -44.7122 )
 
 [node name="Huts" type="Spatial" parent="."]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 17.9912, -21 )
+transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 23.3182, 13.6805, 5.479 )
 
 [node name="SM_Bld_Hut_01" parent="Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.352887, 0, 0.935668, 0, 1, 0, -0.935668, 0, 0.352887, -459.704, -95.9946, -208.472 )
 
 [node name="SM_Bld_Hut_02" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( 0.352887, 0, 0.935668, 0, 1, 0, -0.935668, 0, 0.352887, -459.704, -95.4381, -200.139 )
+transform = Transform( 0.352887, 0, 0.935668, 0.031365, 0.999438, -0.0118293, -0.935142, 0.0335215, 0.352689, -459.704, -96.6284, -200.139 )
 
 [node name="SM_Bld_Hut_03" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( 0.986756, 0, 0.162225, 0, 1, 0, -0.162225, 0, 0.986756, -470.248, -95.5748, -196.129 )
+transform = Transform( 0.986756, 0, 0.162225, 0, 1, 0, -0.162225, 0, 0.986756, -470.248, -97.009, -196.129 )
 
 [node name="SM_Bld_Hut_04" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( 0.541534, 0, -0.840682, 0, 1, 0, 0.840682, 0, 0.541534, -481.7, -95.9944, -194.39 )
+transform = Transform( 0.799048, 0, -0.601273, 0, 1, 0, 0.601273, 0, 0.799048, -481.052, -97.6567, -194.141 )
 
 [node name="SM_Bld_Hut_05" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( 0.681388, 0, -0.731927, 0, 1, 0, 0.731927, 0, 0.681388, -490.916, -96.8956, -198.452 )
+transform = Transform( 0.681389, 0, -0.731928, -0.0379489, 0.998655, -0.0353286, 0.730943, 0.0518479, 0.680472, -490.916, -97.168, -198.452 )
 
 [node name="SM_Bld_Hut_06" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( 0.539073, -0.0406192, -0.841285, 0.0715005, 0.997438, -0.00234362, 0.839225, -0.0588882, 0.540596, -497.835, -97.8858, -206.191 )
+transform = Transform( 0.539073, -0.0406192, -0.841285, 0.0113151, 0.999096, -0.0409889, 0.84219, 0.0125768, 0.539045, -497.835, -96.8718, -206.191 )
 
 [node name="SM_Bld_Hut_07" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( 0.352448, 0, -0.935836, 0.00836259, 0.99996, 0.00314947, 0.935798, -0.00893597, 0.352434, -503.39, -99.0701, -213.947 )
+transform = Transform( 0.352448, 0, -0.935836, 0.00836259, 0.99996, 0.00314947, 0.935798, -0.00893597, 0.352434, -503.39, -96.5855, -213.947 )
 
 [node name="SM_Bld_Hut_08" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( 0.261836, 0, -0.965115, 0, 1, 0, 0.965115, 0, 0.261836, -505.786, -99.5002, -223.675 )
+transform = Transform( 0.261836, 0, -0.965115, 0, 1, 0, 0.965115, 0, 0.261836, -505.786, -97.0156, -223.675 )
 
 [node name="SM_Bld_Hut_09" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( -0.360144, 0, -0.9329, 0, 1, 0, 0.9329, 0, -0.360144, -502.318, -99.4814, -234.797 )
+transform = Transform( -0.360144, 0, -0.9329, 0, 1, 0, 0.9329, 0, -0.360144, -502.318, -96.9968, -234.797 )
 
 [node name="SM_Bld_Hut_10" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( -0.844863, 0, -0.534989, 0, 1, 0, 0.534989, 0, -0.844863, -498.014, -99.2501, -245.551 )
+transform = Transform( -0.844863, 0, -0.534989, 0, 1, 0, 0.534989, 0, -0.844863, -498.014, -96.7655, -245.551 )
 
 [node name="SM_Bld_Hut_11" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( -0.95454, 0, -0.298093, 0, 1, 0, 0.298093, 0, -0.95454, -490.343, -99.1407, -248.808 )
+transform = Transform( -0.95454, 0, -0.298093, 0, 1, 0, 0.298093, 0, -0.95454, -490.343, -96.6561, -248.808 )
 
 [node name="SM_Bld_Hut_12" parent="Huts" instance=ExtResource( 6 )]
-transform = Transform( -0.975704, 0, 0.219114, 0, 1, 0, -0.219114, 0, -0.975704, -479.443, -98.5997, -249.003 )
+transform = Transform( -0.975704, 0, 0.219114, 0, 1, 0, -0.219114, 0, -0.975704, -479.443, -96.1151, -249.003 )
 
 [node name="DeadTrees" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1882, -4.31946, 26.479 )
 
 [node name="SM_Env_TreeDead_01" parent="DeadTrees" instance=ExtResource( 7 )]
 transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -1.03922, 16.9218, -17.2236 )
@@ -199,342 +203,633 @@ transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 17, -19 )
 transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 17, -18 )
 
 [node name="Trees" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0723732, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1882, -4.31946, 26.479 )
 
-[node name="SM_Env_TreePine_03_Snow" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.7779, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_03" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -57.0101, 6.50586, -47.0812 )
 
-[node name="SM_Env_TreePine_03_Snow3" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -54.0271, 6.71395, -44.6186 )
+[node name="SM_Env_TreePine_04" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -55.7296, 6.50586, -45.6134 )
 
-[node name="SM_Env_TreePine_03_Snow4" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.8989, 6.78728, -44.0528 )
+[node name="SM_Env_TreePine_05" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -56.0864, 6.50586, -49.2522 )
 
-[node name="SM_Env_TreePine_03_Snow5" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.7779, 6.55573, -46.0414 )
+[node name="SM_Env_TreePine_06" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -55.596, 6.50586, -47.5783 )
 
-[node name="SM_Env_TreePine_03_Snow7" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.7779, 6.47041, -46.8444 )
+[node name="SM_Env_TreePine_07" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -54.2134, 6.50586, -47.6259 )
 
-[node name="SM_Env_TreePine_03_Snow9" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.7779, 6.40989, -47.641 )
+[node name="SM_Env_TreePine_08" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -54.1793, 6.50586, -45.9665 )
 
-[node name="SM_Env_TreePine_03_Snow10" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.2669, 6.40989, -47.2451 )
+[node name="SM_Env_TreePine_09" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -54.6236, 6.50586, -49.2522 )
 
-[node name="SM_Env_TreePine_03_Snow13" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.7779, 6.34821, -49.6741 )
+[node name="SM_Env_TreePine_10" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -52.3767, 6.50586, -48.536 )
 
-[node name="SM_Env_TreePine_03_Snow14" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -54.3543, 6.34821, -49.2782 )
+[node name="SM_Env_TreePine_11" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -55.9366, 6.50586, -51.5382 )
 
-[node name="SM_Env_TreePine_03_Snow15" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -54.3152, 6.40989, -47.4748 )
+[node name="SM_Env_TreePine_12" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -57.0787, 6.50586, -50.4235 )
 
-[node name="SM_Env_TreePine_03_Snow16" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -54.3175, 6.34821, -48.4304 )
+[node name="SM_Env_TreePine_13" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -55.9366, 6.50586, -53.7093 )
 
-[node name="SM_Env_TreePine_03_Snow17" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -54.3094, 6.40989, -46.4475 )
+[node name="SM_Env_TreePine_14" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -57.9192, 6.50586, -52.5946 )
 
-[node name="SM_Env_TreePine_03_Snow18" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.9207, 6.40989, -48.8881 )
+[node name="SM_Env_TreePine_15" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -54.3982, 6.50586, -51.5382 )
 
-[node name="SM_Env_TreePine_03_Snow19" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.2379, 6.64168, -45.4048 )
+[node name="SM_Env_TreePine_16" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -53.6384, 6.50586, -50.4235 )
 
-[node name="SM_Env_TreePine_03_Snow20" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.9479, 6.68683, -44.8484 )
+[node name="SM_Env_TreePine_17" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -54.4738, 6.50586, -53.7093 )
 
-[node name="SM_Env_TreePine_03_Snow22" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.1879, 6.78728, -44.0528 )
+[node name="SM_Env_TreePine_18" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -53.3537, 6.50586, -52.5946 )
 
-[node name="SM_Env_TreePine_03_Snow23" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.9935, 6.55573, -46.0414 )
+[node name="SM_Env_TreePine_19" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -54.6664, 6.22918, -61.8881 )
 
-[node name="SM_Env_TreePine_03_Snow27" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.8044, 6.40989, -47.9508 )
+[node name="SM_Env_TreePine_20" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -56.4761, 6.16649, -62.6083 )
 
-[node name="SM_Env_TreePine_03_Snow30" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.6229, 6.34821, -48.9379 )
+[node name="SM_Env_TreePine_21" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -54.4955, 6.2583, -59.5349 )
 
-[node name="SM_Env_TreePine_03_Snow31" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.2783, 6.34821, -49.899 )
+[node name="SM_Env_TreePine_22" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -55.6968, 6.21306, -60.7996 )
 
-[node name="SM_Env_TreePine_03_Snow32" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.6782, 6.34821, -49.7633 )
+[node name="SM_Env_TreePine_23" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -59.1788, 6.20109, -60.1253 )
 
-[node name="SM_Env_TreePine_03_Snow34" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.2877, 6.34821, -48.4304 )
+[node name="SM_Env_TreePine_24" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -58.1914, 6.16649, -61.7056 )
 
-[node name="SM_Env_TreePine_03_Snow35" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.1347, 6.40989, -46.6456 )
+[node name="SM_Env_TreePine_25" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -55.7965, 6.2583, -58.8663 )
 
-[node name="SM_Env_TreePine_03_Snow36" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -53.3304, 6.40989, -49.0756 )
+[node name="SM_Env_TreePine_26" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -57.6359, 6.20124, -59.2996 )
 
-[node name="SM_Env_TreePine_03_Snow37" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.283, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_27" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -53.5838, 6.44702, -57.4333 )
 
-[node name="SM_Env_TreePine_03_Snow39" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.283, 6.71395, -44.2956 )
+[node name="SM_Env_TreePine_28" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -53.0775, 6.43644, -58.9467 )
 
-[node name="SM_Env_TreePine_03_Snow40" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.404, 6.78728, -43.7506 )
+[node name="SM_Env_TreePine_29" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -52.5914, 6.50586, -55.5023 )
 
-[node name="SM_Env_TreePine_03_Snow41" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.283, 6.55573, -46.0414 )
+[node name="SM_Env_TreePine_30" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -51.3376, 6.50586, -57.3999 )
 
-[node name="SM_Env_TreePine_03_Snow42" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.0157, 6.59002, -45.6455 )
+[node name="SM_Env_TreePine_31" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -54.9521, 6.41014, -56.7301 )
 
-[node name="SM_Env_TreePine_03_Snow44" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.5078, 6.50404, -46.6178 )
+[node name="SM_Env_TreePine_32" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -57.0283, 6.50586, -57.3742 )
 
-[node name="SM_Env_TreePine_03_Snow49" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.7847, 6.34821, -49.6741 )
+[node name="SM_Env_TreePine_33" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -53.8925, 6.50586, -54.8337 )
 
-[node name="SM_Env_TreePine_03_Snow50" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.0399, 6.34821, -49.2782 )
+[node name="SM_Env_TreePine_34" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -55.3982, 6.50586, -55.313 )
 
-[node name="SM_Env_TreePine_03_Snow51" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.2158, 6.40989, -47.5899 )
+[node name="SM_Env_TreePine_35" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -52.2478, 6.50586, -47.0422 )
 
-[node name="SM_Env_TreePine_03_Snow52" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.3243, 6.34821, -48.4304 )
+[node name="SM_Env_TreePine_36" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -49.9834, 6.50586, -47.3463 )
 
-[node name="SM_Env_TreePine_03_Snow53" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -52.0885, 6.40989, -47.017 )
+[node name="SM_Env_TreePine_37" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -50.3402, 6.50586, -50.9851 )
 
-[node name="SM_Env_TreePine_03_Snow55" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.6197, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_38" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -50.4372, 6.50586, -49.3112 )
 
-[node name="SM_Env_TreePine_03_Snow57" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.6246, 6.71395, -44.4487 )
+[node name="SM_Env_TreePine_39" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -48.4672, 6.50586, -49.3588 )
 
-[node name="SM_Env_TreePine_03_Snow58" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.7848, 6.78728, -43.8366 )
+[node name="SM_Env_TreePine_40" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -48.4331, 6.50586, -47.6994 )
 
-[node name="SM_Env_TreePine_03_Snow59" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.6454, 6.55573, -46.0414 )
+[node name="SM_Env_TreePine_41" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -48.8774, 6.50586, -50.9851 )
 
-[node name="SM_Env_TreePine_03_Snow63" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.7549, 6.40989, -47.8011 )
+[node name="SM_Env_TreePine_42" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -51.9648, 6.50586, -50.2689 )
 
-[node name="SM_Env_TreePine_03_Snow64" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.068, 6.40989, -46.7606 )
+[node name="SM_Env_TreePine_43" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -50.1904, 6.50586, -53.2711 )
 
-[node name="SM_Env_TreePine_03_Snow65" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.896, 6.34821, -49.1384 )
+[node name="SM_Env_TreePine_44" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -51.3325, 6.50586, -52.1564 )
 
-[node name="SM_Env_TreePine_03_Snow68" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.685, 6.34821, -49.7633 )
+[node name="SM_Env_TreePine_45" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -50.1904, 6.50586, -55.4422 )
 
-[node name="SM_Env_TreePine_03_Snow69" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.3627, 6.40989, -47.5899 )
+[node name="SM_Env_TreePine_46" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -51.3896, 6.50586, -54.3275 )
 
-[node name="SM_Env_TreePine_03_Snow70" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.2945, 6.34821, -48.4304 )
+[node name="SM_Env_TreePine_47" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -48.652, 6.50586, -53.2711 )
 
-[node name="SM_Env_TreePine_03_Snow71" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.6244, 6.40989, -46.8906 )
+[node name="SM_Env_TreePine_48" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -47.8922, 6.50586, -52.1564 )
 
-[node name="SM_Env_TreePine_03_Snow72" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.6225, 6.40989, -48.9018 )
+[node name="SM_Env_TreePine_49" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -48.7276, 6.50586, -55.4422 )
 
-[node name="SM_Env_TreePine_03_Snow73" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.9275, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_50" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -47.017, 6.50586, -54.8526 )
 
-[node name="SM_Env_TreePine_03_Snow75" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.8166, 6.71395, -44.4487 )
+[node name="SM_Env_TreePine_51" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -54.911, 6.22918, -63.3979 )
 
-[node name="SM_Env_TreePine_03_Snow76" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -51.1653, 6.78728, -44.0528 )
+[node name="SM_Env_TreePine_52" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -50.9032, 6.16649, -64.6117 )
 
-[node name="SM_Env_TreePine_03_Snow77" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.9532, 6.55573, -46.0414 )
+[node name="SM_Env_TreePine_53" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -48.1417, 6.2583, -62.3721 )
 
-[node name="SM_Env_TreePine_03_Snow78" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.6181, 6.59002, -45.6455 )
+[node name="SM_Env_TreePine_54" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -50.0008, 6.21306, -62.9674 )
 
-[node name="SM_Env_TreePine_03_Snow11" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.0178, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_55" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -51.6065, 6.20109, -61.4012 )
 
-[node name="SM_Env_TreePine_03_Snow25" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.77, 6.68683, -44.8484 )
+[node name="SM_Env_TreePine_56" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -52.8782, 5.92179, -63.8438 )
 
-[node name="SM_Env_TreePine_03_Snow28" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.1336, 6.71395, -44.4487 )
+[node name="SM_Env_TreePine_57" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -49.8091, 6.2583, -60.5992 )
 
-[node name="SM_Env_TreePine_03_Snow33" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.1388, 6.78728, -43.8815 )
+[node name="SM_Env_TreePine_58" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -53.0964, 6.20124, -61.0713 )
 
-[node name="SM_Env_TreePine_03_Snow43" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.0178, 6.55573, -46.0414 )
+[node name="SM_Env_TreePine_59" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -47.7295, 6.44702, -59.1662 )
 
-[node name="SM_Env_TreePine_03_Snow47" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.0178, 6.47041, -46.8444 )
+[node name="SM_Env_TreePine_60" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -47.3313, 6.43644, -60.6796 )
 
-[node name="SM_Env_TreePine_03_Snow48" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.4387, 6.50404, -46.351 )
+[node name="SM_Env_TreePine_61" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -47.6106, 6.50586, -56.9853 )
 
-[node name="SM_Env_TreePine_03_Snow79" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.7987, 6.40989, -47.2451 )
+[node name="SM_Env_TreePine_62" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -45.8075, 6.34017, -58.454 )
 
-[node name="SM_Env_TreePine_03_Snow81" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.0178, 6.34821, -49.6741 )
+[node name="SM_Env_TreePine_63" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -49.4633, 6.41014, -58.7443 )
 
-[node name="SM_Env_TreePine_03_Snow82" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.273, 6.34821, -49.2782 )
+[node name="SM_Env_TreePine_64" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -51.2397, 6.37229, -59.5795 )
 
-[node name="SM_Env_TreePine_03_Snow83" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.2187, 6.40989, -47.7986 )
+[node name="SM_Env_TreePine_65" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -45.3906, 6.50586, -56.2019 )
 
-[node name="SM_Env_TreePine_03_Snow84" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.5574, 6.34821, -48.4304 )
+[node name="SM_Env_TreePine_66" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -49.652, 6.50586, -57.0459 )
 
-[node name="SM_Env_TreePine_03_Snow85" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -50.4044, 6.40989, -47.1813 )
+[node name="SM_Env_TreePine_67" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -57.5902, 6.50586, -54.8812 )
 
-[node name="SM_Env_TreePine_03_Snow86" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.9065, 6.40989, -49.0953 )
+[node name="SM_Env_TreePine_68" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -58.9018, 6.41014, -56.6676 )
 
-[node name="SM_Env_TreePine_03_Snow87" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.3699, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_69" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -60.3656, 6.50586, -58.2332 )
 
-[node name="SM_Env_TreePine_03_Snow89" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.17, 6.71395, -44.6505 )
+[node name="SM_Env_TreePine_70" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -59.7607, 6.50586, -54.6973 )
 
-[node name="SM_Env_TreePine_03_Snow90" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.6077, 6.78728, -44.0528 )
+[node name="SM_Env_TreePine_71" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -46.0207, 6.50586, -52.8469 )
 
-[node name="SM_Env_TreePine_03_Snow92" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.0605, 6.59002, -45.6455 )
+[node name="SM_Env_TreePine_72" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -46.8427, 6.50586, -49.1013 )
 
-[node name="SM_Env_TreePine_03_Snow93" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.495, 6.50404, -46.3358 )
+[node name="SM_Env_TreePine_73" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -44.1068, 6.50586, -53.0531 )
 
-[node name="SM_Env_TreePine_03_Snow94" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.0443, 6.40989, -47.641 )
+[node name="SM_Env_TreePine_74" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -45.9025, 6.50586, -50.8826 )
 
-[node name="SM_Env_TreePine_03_Snow96" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.0965, 6.34821, -48.1811 )
+[node name="SM_Env_TreePine_75" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -43.9178, 6.50586, -50.5798 )
 
-[node name="SM_Env_TreePine_03_Snow98" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.9181, 6.34821, -49.7633 )
+[node name="SM_Env_TreePine_76" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -45.06, 6.50586, -48.7924 )
 
-[node name="SM_Env_TreePine_03_Snow99" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.5276, 6.34821, -48.4304 )
+[node name="SM_Env_TreePine_77" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -43.0664, 6.50586, -52.0248 )
 
-[node name="SM_Env_TreePine_03_Snow100" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.3746, 6.40989, -46.8906 )
+[node name="SM_Env_TreePine_78" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -41.9717, 6.50586, -49.936 )
 
-[node name="SM_Env_TreePine_03_Snow101" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -49.5703, 6.40989, -49.0756 )
+[node name="SM_Env_TreePine_79" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -42.3933, 6.50586, -54.5737 )
 
-[node name="SM_Env_TreePine_03_Snow102" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.5229, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_80" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -43.9892, 6.50586, -54.5837 )
 
-[node name="SM_Env_TreePine_03_Snow103" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.3913, 6.68683, -44.7593 )
+[node name="SM_Env_TreePine_81" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -40.8672, 6.50586, -56.1179 )
 
-[node name="SM_Env_TreePine_03_Snow104" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.7839, 6.71395, -44.2956 )
+[node name="SM_Env_TreePine_82" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -43.0609, 6.50586, -56.7187 )
 
-[node name="SM_Env_TreePine_03_Snow105" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.6439, 6.78728, -43.7506 )
+[node name="SM_Env_TreePine_83" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -41.2991, 6.50586, -53.4923 )
 
-[node name="SM_Env_TreePine_03_Snow106" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.5229, 6.55573, -46.0414 )
+[node name="SM_Env_TreePine_84" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -41.5423, 6.50586, -52.1654 )
 
-[node name="SM_Env_TreePine_03_Snow107" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.1533, 6.59002, -45.6455 )
+[node name="SM_Env_TreePine_85" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -39.8268, 6.50586, -55.0896 )
 
-[node name="SM_Env_TreePine_03_Snow108" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.7477, 6.50404, -46.6178 )
+[node name="SM_Env_TreePine_86" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -39.8137, 6.50586, -53.5095 )
 
-[node name="SM_Env_TreePine_03_Snow110" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.0246, 6.34821, -49.6741 )
+[node name="SM_Env_TreePine_87" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -34.2146, 6.22918, -61.0422 )
 
-[node name="SM_Env_TreePine_03_Snow111" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.2798, 6.34821, -49.2782 )
+[node name="SM_Env_TreePine_88" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -34.9955, 6.16649, -62.8266 )
 
-[node name="SM_Env_TreePine_03_Snow112" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.0738, 6.40989, -47.5899 )
+[node name="SM_Env_TreePine_89" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -35.7472, 6.2583, -59.2484 )
 
-[node name="SM_Env_TreePine_03_Snow113" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.5642, 6.34821, -48.4304 )
+[node name="SM_Env_TreePine_90" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -35.7126, 6.21306, -60.9923 )
 
-[node name="SM_Env_TreePine_03_Snow114" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.3284, 6.40989, -47.017 )
+[node name="SM_Env_TreePine_91" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -38.6632, 6.20109, -62.9604 )
 
-[node name="SM_Env_TreePine_03_Snow115" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.8596, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_92" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -36.8501, 6.27984, -63.3903 )
 
-[node name="SM_Env_TreePine_03_Snow116" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.6775, 6.68683, -44.8484 )
+[node name="SM_Env_TreePine_93" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -37.1425, 6.2583, -59.6874 )
 
-[node name="SM_Env_TreePine_03_Snow117" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.8645, 6.71395, -44.4487 )
+[node name="SM_Env_TreePine_94" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -38.1462, 6.20124, -61.2885 )
 
-[node name="SM_Env_TreePine_03_Snow118" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -48.0974, 6.78728, -43.8673 )
+[node name="SM_Env_TreePine_95" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -36.576, 6.44702, -57.1127 )
 
-[node name="SM_Env_TreePine_03_Snow120" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.5502, 6.59002, -45.6455 )
+[node name="SM_Env_TreePine_96" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -35.1521, 6.43644, -57.8333 )
 
-[node name="SM_Env_TreePine_03_Snow121" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.4243, 6.47041, -46.4469 )
+[node name="SM_Env_TreePine_97" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -37.2275, 6.50586, -55.0417 )
 
-[node name="SM_Env_TreePine_03_Snow122" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.9848, 6.50404, -46.4485 )
+[node name="SM_Env_TreePine_98" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -35.0019, 6.50586, -55.51 )
 
-[node name="SM_Env_TreePine_03_Snow123" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -46.9948, 6.40989, -47.641 )
+[node name="SM_Env_TreePine_99" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -38.0435, 6.41014, -57.5744 )
 
-[node name="SM_Env_TreePine_03_Snow124" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.3079, 6.40989, -46.9807 )
+[node name="SM_Env_TreePine_100" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -39.0675, 6.50586, -59.492 )
 
-[node name="SM_Env_TreePine_03_Snow125" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -46.9948, 6.34821, -49.1384 )
+[node name="SM_Env_TreePine_101" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -38.6229, 6.50586, -55.4808 )
 
-[node name="SM_Env_TreePine_03_Snow126" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.1033, 6.34821, -48.4815 )
+[node name="SM_Env_TreePine_102" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -39.3569, 6.50586, -56.8801 )
 
-[node name="SM_Env_TreePine_03_Snow127" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.525, 6.34821, -49.6741 )
+[node name="SM_Env_TreePine_103" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -42.9301, 6.50586, -48.7829 )
 
-[node name="SM_Env_TreePine_03_Snow128" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -46.9249, 6.34821, -49.7633 )
+[node name="SM_Env_TreePine_104" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -41.1058, 6.50586, -47.4075 )
 
-[node name="SM_Env_TreePine_03_Snow129" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.4259, 6.40989, -47.5899 )
+[node name="SM_Env_TreePine_105" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -38.8017, 6.50586, -50.2464 )
 
-[node name="SM_Env_TreePine_03_Snow130" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.5344, 6.34821, -48.4304 )
+[node name="SM_Env_TreePine_106" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -39.6295, 6.50586, -48.7111 )
 
-[node name="SM_Env_TreePine_03_Snow131" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.8643, 6.40989, -46.8906 )
+[node name="SM_Env_TreePine_107" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -38.6127, 6.50586, -47.7731 )
 
-[node name="SM_Env_TreePine_03_Snow132" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.8624, 6.40989, -48.9018 )
+[node name="SM_Env_TreePine_108" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -39.7549, 6.50586, -46.5689 )
 
-[node name="SM_Env_TreePine_03_Snow133" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.1674, 6.64168, -45.2443 )
+[node name="SM_Env_TreePine_109" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -37.7613, 6.50586, -49.2182 )
 
-[node name="SM_Env_TreePine_03_Snow134" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -46.9853, 6.68683, -44.8484 )
+[node name="SM_Env_TreePine_110" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -40.4606, 6.50586, -50.879 )
 
-[node name="SM_Env_TreePine_03_Snow135" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -46.8967, 6.71395, -44.3046 )
+[node name="SM_Env_TreePine_111" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -37.0882, 6.50586, -51.767 )
 
-[node name="SM_Env_TreePine_03_Snow136" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.4052, 6.78728, -44.0528 )
+[node name="SM_Env_TreePine_112" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -38.6841, 6.50586, -51.777 )
 
-[node name="SM_Env_TreePine_03_Snow137" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -47.1931, 6.55573, -46.0414 )
+[node name="SM_Env_TreePine_113" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -35.5621, 6.50586, -53.3112 )
 
-[node name="SM_Env_TreePine_03_Snow138" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -46.858, 6.59002, -45.6455 )
+[node name="SM_Env_TreePine_114" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -37.1986, 6.50586, -53.3614 )
+
+[node name="SM_Env_TreePine_115" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -35.994, 7.19046, -50.6856 )
+
+[node name="SM_Env_TreePine_116" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -36.2372, 7.19046, -49.3587 )
+
+[node name="SM_Env_TreePine_117" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -34.5217, 6.50586, -52.283 )
+
+[node name="SM_Env_TreePine_118" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -34.5086, 7.19046, -50.7028 )
+
+[node name="SM_Env_TreePine_119" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -33.3273, 6.22918, -62.288 )
+
+[node name="SM_Env_TreePine_120" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -29.6235, 6.69139, -60.3341 )
+
+[node name="SM_Env_TreePine_121" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -29.2336, 6.7832, -56.8 )
+
+[node name="SM_Env_TreePine_122" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -30.1375, 6.73796, -58.5303 )
+
+[node name="SM_Env_TreePine_123" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -31.8113, 6.20109, -59.1209 )
+
+[node name="SM_Env_TreePine_124" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -31.568, 6.16649, -61.1762 )
+
+[node name="SM_Env_TreePine_125" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -31.6658, 6.2583, -56.7111 )
+
+[node name="SM_Env_TreePine_126" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -33.6721, 6.20124, -59.3577 )
+
+[node name="SM_Env_TreePine_127" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -31.194, 6.44702, -54.2301 )
+
+[node name="SM_Env_TreePine_128" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -29.847, 6.43644, -55.0266 )
+
+[node name="SM_Env_TreePine_129" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -32.6425, 7.0332, -52.5953 )
+
+[node name="SM_Env_TreePine_130" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -30.3276, 7.25966, -52.3724 )
+
+[node name="SM_Env_TreePine_131" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -32.7237, 6.41014, -55.1488 )
+
+[node name="SM_Env_TreePine_132" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -33.4001, 6.50586, -56.9915 )
+
+[node name="SM_Env_TreePine_133" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -32.8676, 7.30105, -50.409 )
+
+[node name="SM_Env_TreePine_134" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -34.0519, 6.50586, -54.0734 )
+
+[node name="SM_Env_TreePine_135" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.213376, 0, -0.210881, 0, 0.3, 0, 0.210881, 0, 0.213376, -41.2196, 6.50586, -58.1138 )
+
+[node name="SM_Env_TreePine_136" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -40.8967, 6.41014, -60.3063 )
+
+[node name="SM_Env_TreePine_137" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -40.8373, 6.30454, -62.4488 )
+
+[node name="SM_Env_TreePine_138" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.286173, 0, 0.0900273, 0, 0.3, 0, -0.0900273, 0, -0.286173, -43.9319, 6.50586, -58.4578 )
+
+[node name="SM_Env_TreePine_139" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -48.6341, 6.32071, -64.3301 )
+
+[node name="SM_Env_TreePine_140" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -45.2929, 6.34017, -60.0349 )
+
+[node name="SM_Env_TreePine_141" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -42.097, 6.2583, -65.275 )
+
+[node name="SM_Env_TreePine_142" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -43.9561, 6.21306, -65.8702 )
+
+[node name="SM_Env_TreePine_143" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -45.5618, 6.20109, -65.1138 )
+
+[node name="SM_Env_TreePine_144" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -43.7645, 6.2583, -63.6684 )
+
+[node name="SM_Env_TreePine_145" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -47.0517, 6.20124, -65.2334 )
+
+[node name="SM_Env_TreePine_146" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -43.0201, 6.29071, -61.8362 )
+
+[node name="SM_Env_TreePine_147" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -40.1967, 6.18521, -64.3036 )
+
+[node name="SM_Env_TreePine_148" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -45.4653, 6.24445, -61.5869 )
+
+[node name="SM_Env_TreePine_149" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -46.409, 6.50586, -63.2905 )
+
+[node name="SM_Env_TreePine_150" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.266825, 0, -0.137129, 0, 0.3, 0, 0.137129, 0, -0.266825, -42.8503, 6.50586, -60.1151 )
+
+[node name="SM_Env_TreePine_151" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.259802, 0, 0.150009, 0, 0.3, 0, -0.150009, 0, 0.259802, -27.6121, 6.90046, -60.0253 )
+
+[node name="SM_Env_TreePine_152" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.259802, 0, 0.150009, 0, 0.3, 0, -0.150009, 0, 0.259802, -29.9786, 6.50586, -62.4531 )
+
+[node name="SM_Env_TreePine_153" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.259802, 0, 0.150009, 0, 0.3, 0, -0.150009, 0, 0.259802, -28.4512, 6.50586, -62.0478 )
+
+[node name="SM_Env_TreePine_154" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -39.3115, 6.22918, -66.2509 )
+
+[node name="SM_Env_TreePine_155" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -36.4477, 6.36127, -69.3061 )
+
+[node name="SM_Env_TreePine_156" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -32.9363, 6.2583, -68.7475 )
+
+[node name="SM_Env_TreePine_157" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -34.844, 6.21306, -68.3333 )
+
+[node name="SM_Env_TreePine_158" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -35.8563, 6.49191, -66.8754 )
+
+[node name="SM_Env_TreePine_159" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -37.774, 6.16649, -67.6535 )
+
+[node name="SM_Env_TreePine_160" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -33.4938, 6.2583, -66.3783 )
+
+[node name="SM_Env_TreePine_161" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -36.5767, 6.35385, -65.1434 )
+
+[node name="SM_Env_TreePine_162" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -30.9763, 6.44702, -66.1772 )
+
+[node name="SM_Env_TreePine_163" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -31.3882, 6.43644, -67.6869 )
+
+[node name="SM_Env_TreePine_164" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -29.7828, 6.50586, -64.348 )
+
+[node name="SM_Env_TreePine_165" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -28.9557, 6.50586, -66.5215 )
+
+[node name="SM_Env_TreePine_166" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -32.2669, 6.41014, -64.9449 )
+
+[node name="SM_Env_TreePine_167" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -34.2228, 6.50586, -64.78 )
+
+[node name="SM_Env_TreePine_168" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -27.7339, 6.50586, -63.5527 )
+
+[node name="SM_Env_TreePine_169" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.162504, 0, -0.252175, 0, 0.3, 0, 0.252175, 0, -0.162504, -31.581, 6.50586, -63.3797 )
+
+[node name="SM_Env_TreePine_170" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.136314, 0, 0.267243, 0, 0.3, 0, -0.267243, 0, 0.136314, -41.213, 6.19536, -66.231 )
+
+[node name="SM_Env_TreePine_171" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.136314, 0, 0.267243, 0, 0.3, 0, -0.267243, 0, 0.136314, -44.5196, 6.50586, -66.9799 )
+
+[node name="SM_Env_TreePine_172" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.136314, 0, 0.267243, 0, 0.3, 0, -0.267243, 0, 0.136314, -43.0177, 6.00191, -67.4712 )
+
+[node name="SM_Env_TreePine_173" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -54.4162, 5.98447, -65.0866 )
+
+[node name="SM_Env_TreePine_174" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -53.6764, 5.92179, -69.2082 )
+
+[node name="SM_Env_TreePine_175" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -50.4266, 5.96551, -70.6507 )
+
+[node name="SM_Env_TreePine_176" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -51.8016, 5.96835, -69.265 )
+
+[node name="SM_Env_TreePine_177" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -51.8573, 5.95639, -67.4909 )
+
+[node name="SM_Env_TreePine_178" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -53.8897, 5.92179, -67.1 )
+
+[node name="SM_Env_TreePine_179" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -49.6049, 6.2583, -68.3597 )
+
+[node name="SM_Env_TreePine_180" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -51.5191, 6.20124, -65.6458 )
+
+[node name="SM_Env_TreePine_181" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -47.3834, 5.90953, -69.5611 )
+
+[node name="SM_Env_TreePine_182" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -48.5507, 5.89894, -70.6034 )
+
+[node name="SM_Env_TreePine_183" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -45.3867, 6.16312, -68.6761 )
+
+[node name="SM_Env_TreePine_184" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -45.8756, 5.96836, -70.9497 )
+
+[node name="SM_Env_TreePine_185" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -47.7954, 6.10094, -67.5856 )
+
+[node name="SM_Env_TreePine_186" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -49.3466, 6.20675, -66.622 )
+
+[node name="SM_Env_TreePine_187" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -43.2349, 5.96954, -69.124 )
+
+[node name="SM_Env_TreePine_188" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.000915945, 0, -0.299998, 0, 0.3, 0, 0.299998, 0, 0.000915945, -46.3682, 6.12181, -66.8851 )
+
+[node name="SM_Env_TreePine_189" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.132405, 0, -0.269201, 0, 0.3, 0, 0.269201, 0, 0.132405, -33.9739, 7.50263, -46.6897 )
+
+[node name="SM_Env_TreePine_190" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.132405, 0, -0.269201, 0, 0.3, 0, 0.269201, 0, 0.132405, -31.3941, 7.46458, -48.8895 )
+
+[node name="SM_Env_TreePine_191" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.132405, 0, -0.269201, 0, 0.3, 0, 0.269201, 0, 0.132405, -31.9, 7.60624, -47.3924 )
+
+[node name="SM_Env_TreePine_192" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -26.9842, 7.0073, -57.9493 )
+
+[node name="SM_Env_TreePine_193" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -24.1262, 7.37978, -54.8887 )
+
+[node name="SM_Env_TreePine_194" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -24.917, 7.47159, -51.4222 )
+
+[node name="SM_Env_TreePine_195" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -25.2034, 7.42634, -53.3532 )
+
+[node name="SM_Env_TreePine_196" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -26.5908, 7.10883, -54.4602 )
+
+[node name="SM_Env_TreePine_197" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -25.6869, 7.06408, -56.322 )
+
+[node name="SM_Env_TreePine_198" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -27.2438, 7.36633, -52.136 )
+
+[node name="SM_Env_TreePine_199" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -28.2711, 6.98712, -55.2942 )
+
+[node name="SM_Env_TreePine_200" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -27.6119, 7.54378, -49.6374 )
+
+[node name="SM_Env_TreePine_201" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -26.0781, 7.77578, -49.9481 )
+
+[node name="SM_Env_TreePine_202" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -29.5164, 7.4977, -48.5682 )
+
+[node name="SM_Env_TreePine_203" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -27.4027, 7.71914, -47.5984 )
+
+[node name="SM_Env_TreePine_204" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -28.7556, 7.5055, -51.0071 )
+
+[node name="SM_Env_TreePine_205" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -28.7902, 7.0727, -52.9697 )
+
+[node name="SM_Env_TreePine_206" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -30.4461, 7.66313, -46.5767 )
+
+[node name="SM_Env_TreePine_207" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.240814, 0, 0.17891, 0, 0.3, 0, -0.17891, 0, -0.240814, -30.363, 7.71914, -50.4268 )
+
+[node name="SM_Env_TreePine_208" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.276311, 0, -0.116843, 0, 0.3, 0, 0.116843, 0, 0.276311, -35.0129, 7.19046, -48.4453 )
+
+[node name="SM_Env_TreePine_209" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.299164, 0, -0.0223784, 0, 0.3, 0, 0.0223784, 0, -0.299164, -33.3798, 7.44751, -48.7803 )
+
+[node name="SM_Env_TreePine_210" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.0668222, 0, -0.292463, 0, 0.3, 0, 0.292463, 0, -0.0668222, -39.3718, 6.22918, -68.8979 )
+
+[node name="SM_Env_TreePine_211" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.0370648, 0, 0.297702, 0, 0.3, 0, -0.297702, 0, 0.0370648, -41.1527, 6.19536, -68.2311 )
 
 [node name="RocksCliffs" type="Spatial" parent="."]
