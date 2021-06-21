@@ -20,7 +20,8 @@
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Env_CampFire_01.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_01.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_02.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Object.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Barrel.tscn" type="PackedScene" id=21]
+
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
