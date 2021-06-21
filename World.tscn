@@ -25,12 +25,12 @@
 [sub_resource type="Environment" id=1]
 background_mode = 1
 background_color = Color( 0.72549, 0.956863, 1, 1 )
+ambient_light_sky_contribution = 0.0
 
 [node name="Spatial" type="Spatial"]
 
 [node name="Water" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814281, 11.5258 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67918, 11.5258 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

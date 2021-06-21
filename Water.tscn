@@ -49,9 +49,6 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/out_color = Color( 0, 0.2, 1, 1 )
-shader_param/amount = 0.8
-shader_param/beer_factor = 100000.0
 
 [sub_resource type="PlaneMesh" id=3]
 material = SubResource( 2 )

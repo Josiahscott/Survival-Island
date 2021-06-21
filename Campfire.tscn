@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Campfire.gd" type="Script" id=1]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Env_CampFire_01.tscn" type="PackedScene" id=2]
@@ -8,6 +8,29 @@ extents = Vector3( 0.243869, 0.0570565, 0.23567 )
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.125694, 0.0296843, 0.120775 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.423529, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 0.25
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+size = Vector3( 0.025, 0.025, 0.025 )
+
+[sub_resource type="SpatialMaterial" id=5]
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 0.1
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+size = Vector3( 0.04, 0.04, 0.04 )
 
 [node name="Campfire" type="Area" groups=[
 "Interactable",
@@ -26,6 +49,30 @@ shape = SubResource( 2 )
 
 [node name="SM_Env_CampFire_01" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207464, 0.0101783 )
+light_color = Color( 1, 0.662745, 0.231373, 1 )
+light_energy = 2.0
+omni_range = 6.73358
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+amount = 25
+lifetime = 0.5
+speed_scale = 0.1
+mesh = SubResource( 4 )
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+
+[node name="CPUParticles2" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0101783 )
+amount = 30
+speed_scale = 0.05
+mesh = SubResource( 6 )
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Area_body_exited"]
