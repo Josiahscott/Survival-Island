@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Island 1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Water.tscn" type="PackedScene" id=2]
@@ -12,16 +12,14 @@
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Env_TreePine_03.tscn" type="PackedScene" id=10]
 [ext_resource path="res://CanvasLayer.gd" type="Script" id=11]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Bld_Fence_01.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Barrel_02.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Campfire.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Crate_01.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Wep_Sword_01.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Wep_Axe_01.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Logpile_01.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Collision AdventureModelsSynty/SM_Env_CampFire_01.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_01.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_02.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Barrel.tscn" type="PackedScene" id=21]
-
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -47,21 +45,15 @@ omni_shadow_mode = 0
 [node name="Player" parent="." groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -29.5563, 2.48393, -31.2573 )
+transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -38.1052, 2.48393, -24.4307 )
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
-
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.9134, 4.33575, -26.8995 )
 
 [node name="Island 1" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3806, 1.71256, -41.7287 )
-
-[node name="Spatial" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -39.7751, 1.55262, -41.9085 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3806, 2.75892, -25.9771 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 11 )
@@ -86,109 +78,111 @@ margin_right = 545.0
 margin_bottom = 81.0
 text = "Press E to use"
 
-[node name="Decoration" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3182, -4.31946, 26.479 )
-
-[node name="SM_Prop_Meat_02" parent="Decoration" instance=ExtResource( 20 )]
-transform = Transform( 0.12, 0, 0, 0, 0.104911, 0.0582559, 0, -0.0582559, 0.104911, -57.2691, 6.54398, -47.8438 )
-
-[node name="SM_Bld_Fence_01" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.1767, 6.47186, -46.5225 )
-
-[node name="SM_Bld_Fence_02" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( 0.0776435, 0, 0.0914958, 0, 0.12, 0, -0.0914958, 0, 0.0776435, -54.9929, 6.47186, -46.8299 )
-
-[node name="SM_Bld_Fence_03" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.3388, 6.45909, -45.5716 )
-
-[node name="SM_Prop_Barrel_02" parent="Decoration" instance=ExtResource( 13 )]
-transform = Transform( -0.0141814, 0, -0.119159, 0, 0.12, 0, 0.119159, 0, -0.0141814, -56.0241, 6.35141, -44.8239 )
-
-[node name="SM_Prop_Crate_01" parent="Decoration" instance=ExtResource( 14 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.34844, -44.7516 )
-
-[node name="SM_Prop_Crate_02" parent="Decoration" instance=ExtResource( 14 )]
-transform = Transform( 0.0909611, 0.0782693, 0, -0.0782693, 0.0909611, 0, 0, 0, 0.12, -56.9266, 6.3683, -44.7571 )
-
-[node name="SM_Prop_Crate_03" parent="Decoration" instance=ExtResource( 14 )]
-transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.43945, -44.7516 )
-
-[node name="SM_Wep_Sword_01" parent="Decoration" instance=ExtResource( 15 )]
-transform = Transform( -0.0966118, -0.0305367, 0.0642933, 0.0038765, 0.105977, 0.0561598, -0.0710706, 0.0472911, -0.0843353, -57.6366, 6.31828, -44.7622 )
-
-[node name="SM_Wep_Axe_01" parent="Decoration" instance=ExtResource( 16 )]
-transform = Transform( -0.108564, -0.0434101, -0.0270093, -0.048544, 0.107415, 0.0224809, 0.0160445, 0.0312646, -0.114739, -59.6099, 6.24581, -46.403 )
-
-[node name="SM_Prop_Logpile_01" parent="Decoration" instance=ExtResource( 17 )]
-transform = Transform( -0.0176192, 0, 0.1187, 0, 0.12, 0, -0.1187, 0, -0.0176192, -59.7277, 6.20148, -46.3953 )
-
-[node name="SM_Env_CampFire_01" parent="Decoration" instance=ExtResource( 18 )]
-transform = Transform( 0.359878, -0.00937303, -8.86686e-05, 0.00937345, 0.359862, 0.00340428, 0, -0.00340544, 0.359984, -57.3366, 6.52047, -47.6543 )
-
-[node name="SM_Prop_Meat_01" parent="Decoration" instance=ExtResource( 19 )]
-transform = Transform( 0.119766, 0.00653124, -0.00365286, -0.00655804, 0.119818, -0.00079191, 0.00360422, 0.000990001, 0.119942, -57.2869, 6.55421, -47.781 )
-
-[node name="SM_Bld_Fence_04" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.6531, 6.39232, -44.7117 )
-
-[node name="SM_Bld_Fence_05" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( -0.108271, 0, -0.0517447, 0, 0.12, 0, 0.0517447, 0, -0.108271, -56.8252, 6.19837, -50.5717 )
-
-[node name="SM_Bld_Fence_06" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( -0.119445, 0, -0.0115328, 0, 0.12, 0, 0.0115328, 0, -0.119445, -57.1712, 6.19837, -50.4793 )
-
-[node name="SM_Bld_Fence_07" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( -0.00115183, 0, -0.119995, 0, 0.12, 0, 0.119995, 0, -0.00115183, -59.7887, 6.08957, -49.846 )
-
-[node name="SM_Bld_Fence_08" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( -0.0421798, 0, -0.112343, 0, 0.12, 0, 0.112343, 0, -0.0421798, -59.8579, 6.08957, -49.4946 )
-
-[node name="SM_Bld_Fence_09" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( -0.0120164, 0, 0.119397, 0, 0.12, 0, -0.119397, 0, -0.0120164, -60.2574, 6.07447, -47.4964 )
-
-[node name="SM_Bld_Fence_10" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -59.2037, 6.29319, -45.5714 )
-
-[node name="SM_Bld_Fence_11" parent="Decoration" instance=ExtResource( 12 )]
-transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -58.3649, 6.43094, -44.7122 )
-
-[node name="Huts" type="Spatial" parent="."]
+[node name="Town1" type="Spatial" parent="."]
 transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 23.3182, 13.6805, 5.479 )
 
-[node name="SM_Bld_Hut_01" parent="Huts" instance=ExtResource( 6 )]
+[node name="Decoration" type="Spatial" parent="Town1"]
+transform = Transform( 8.33333, 0, 0, 0, 8.33333, 0, 0, 0, 8.33333, 0, -150, 175 )
+
+[node name="SM_Prop_Meat_02" parent="Town1/Decoration" instance=ExtResource( 20 )]
+transform = Transform( 0.12, 0, 0, 0, 0.119889, 0.00515676, 0, -0.00515676, 0.119889, -57.6116, 6.53387, -47.8827 )
+
+[node name="SM_Bld_Fence_01" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.1767, 6.47186, -46.5225 )
+
+[node name="SM_Bld_Fence_02" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( 0.0776435, 0, 0.0914958, 0, 0.12, 0, -0.0914958, 0, 0.0776435, -54.9929, 6.47186, -46.8299 )
+
+[node name="SM_Bld_Fence_03" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.3388, 6.45909, -45.5716 )
+
+[node name="SM_Prop_Crate_01" parent="Town1/Decoration" instance=ExtResource( 14 )]
+transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.34844, -44.7516 )
+
+[node name="SM_Prop_Crate_02" parent="Town1/Decoration" instance=ExtResource( 14 )]
+transform = Transform( 0.0909611, 0.0782693, 0, -0.0782693, 0.0909611, 0, 0, 0, 0.12, -56.9266, 6.3683, -44.7571 )
+
+[node name="SM_Prop_Crate_03" parent="Town1/Decoration" instance=ExtResource( 14 )]
+transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.43945, -44.7516 )
+
+[node name="SM_Wep_Sword_01" parent="Town1/Decoration" instance=ExtResource( 15 )]
+transform = Transform( -0.0966118, -0.0305367, 0.0642933, 0.0038765, 0.105977, 0.0561598, -0.0710706, 0.0472911, -0.0843353, -57.6366, 6.31828, -44.7622 )
+
+[node name="SM_Wep_Axe_01" parent="Town1/Decoration" instance=ExtResource( 16 )]
+transform = Transform( -0.108564, -0.0434101, -0.0270093, -0.048544, 0.107415, 0.0224809, 0.0160445, 0.0312646, -0.114739, -59.6099, 6.24581, -46.403 )
+
+[node name="SM_Prop_Logpile_01" parent="Town1/Decoration" instance=ExtResource( 17 )]
+transform = Transform( -0.0176192, 0, 0.1187, 0, 0.12, 0, -0.1187, 0, -0.0176192, -59.7277, 6.20148, -46.3953 )
+
+[node name="SM_Prop_Meat_01" parent="Town1/Decoration" instance=ExtResource( 19 )]
+transform = Transform( 0.119766, 0.00653124, -0.00365286, -0.00655804, 0.119818, -0.00079191, 0.00360422, 0.000990001, 0.119942, -57.5266, 6.54635, -47.7673 )
+
+[node name="SM_Bld_Fence_04" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( 0.0416107, 0, 0.112555, 0, 0.12, 0, -0.112555, 0, 0.0416107, -55.6531, 6.39232, -44.7117 )
+
+[node name="SM_Bld_Fence_05" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( -0.108271, 0, -0.0517447, 0, 0.12, 0, 0.0517447, 0, -0.108271, -56.8252, 6.19837, -50.5717 )
+
+[node name="SM_Bld_Fence_06" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( -0.119445, 0, -0.0115328, 0, 0.12, 0, 0.0115328, 0, -0.119445, -57.1712, 6.19837, -50.4793 )
+
+[node name="SM_Bld_Fence_07" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( -0.00115183, 0, -0.119995, 0, 0.12, 0, 0.119995, 0, -0.00115183, -59.7887, 6.08957, -49.846 )
+
+[node name="SM_Bld_Fence_08" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( -0.0421798, 0, -0.112343, 0, 0.12, 0, 0.112343, 0, -0.0421798, -59.8579, 6.08957, -49.4946 )
+
+[node name="SM_Bld_Fence_09" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( -0.0120164, 0, 0.119397, 0, 0.12, 0, -0.119397, 0, -0.0120164, -60.2574, 6.07447, -47.4964 )
+
+[node name="SM_Bld_Fence_10" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -59.2037, 6.29319, -45.5714 )
+
+[node name="SM_Bld_Fence_11" parent="Town1/Decoration" instance=ExtResource( 12 )]
+transform = Transform( -0.0668347, 0.00529669, 0.0995246, -0.00506094, 0.119495, -0.00975819, -0.0995369, -0.00963222, -0.0663303, -58.3649, 6.43094, -44.7122 )
+
+[node name="Spatial" parent="Town1/Decoration" instance=ExtResource( 21 )]
+transform = Transform( 0.00636894, -0.00489718, -0.0996768, 0.000312273, 0.09988, -0.00488721, 0.0997965, 0, 0.00637659, -56.0892, 6.36277, -44.8843 )
+
+[node name="Campfire" parent="Town1/Decoration" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.6705, 6.49946, -47.7608 )
+
+[node name="Huts" type="Spatial" parent="Town1"]
+
+[node name="SM_Bld_Hut_01" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.352887, 0, 0.935668, 0, 1, 0, -0.935668, 0, 0.352887, -459.704, -95.9946, -208.472 )
 
-[node name="SM_Bld_Hut_02" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_02" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.352887, 0, 0.935668, 0.031365, 0.999438, -0.0118293, -0.935142, 0.0335215, 0.352689, -459.704, -96.6284, -200.139 )
 
-[node name="SM_Bld_Hut_03" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_03" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.986756, 0, 0.162225, 0, 1, 0, -0.162225, 0, 0.986756, -470.248, -97.009, -196.129 )
 
-[node name="SM_Bld_Hut_04" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_04" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.799048, 0, -0.601273, 0, 1, 0, 0.601273, 0, 0.799048, -481.052, -97.6567, -194.141 )
 
-[node name="SM_Bld_Hut_05" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_05" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.681389, 0, -0.731928, -0.0379489, 0.998655, -0.0353286, 0.730943, 0.0518479, 0.680472, -490.916, -97.168, -198.452 )
 
-[node name="SM_Bld_Hut_06" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_06" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.539073, -0.0406192, -0.841285, 0.0113151, 0.999096, -0.0409889, 0.84219, 0.0125768, 0.539045, -497.835, -96.8718, -206.191 )
 
-[node name="SM_Bld_Hut_07" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_07" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.352448, 0, -0.935836, 0.00836259, 0.99996, 0.00314947, 0.935798, -0.00893597, 0.352434, -503.39, -96.5855, -213.947 )
 
-[node name="SM_Bld_Hut_08" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_08" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( 0.261836, 0, -0.965115, 0, 1, 0, 0.965115, 0, 0.261836, -505.786, -97.0156, -223.675 )
 
-[node name="SM_Bld_Hut_09" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_09" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( -0.360144, 0, -0.9329, 0, 1, 0, 0.9329, 0, -0.360144, -502.318, -96.9968, -234.797 )
 
-[node name="SM_Bld_Hut_10" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_10" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( -0.844863, 0, -0.534989, 0, 1, 0, 0.534989, 0, -0.844863, -498.014, -96.7655, -245.551 )
 
-[node name="SM_Bld_Hut_11" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_11" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( -0.95454, 0, -0.298093, 0, 1, 0, 0.298093, 0, -0.95454, -490.343, -96.6561, -248.808 )
 
-[node name="SM_Bld_Hut_12" parent="Huts" instance=ExtResource( 6 )]
+[node name="SM_Bld_Hut_12" parent="Town1/Huts" instance=ExtResource( 6 )]
 transform = Transform( -0.975704, 0, 0.219114, 0, 1, 0, -0.219114, 0, -0.975704, -479.443, -96.1151, -249.003 )
 
 [node name="DeadTrees" type="Spatial" parent="."]
