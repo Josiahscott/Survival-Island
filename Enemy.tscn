@@ -8,7 +8,7 @@
 
 [sub_resource type="CapsuleShape" id=3]
 
-[sub_resource type="CapsuleShape" id=5]
+[sub_resource type="CapsuleShape" id=4]
 radius = 1.05988
 height = 1.39525
 
@@ -33,10 +33,15 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area2"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timershoot" type="Timer" parent="."]
 one_shot = true
+
+[node name="Shooter" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01425, -1.46232 )
+enabled = true
+cast_to = Vector3( 0, 0, -10 )
 
 [node name="Launcher" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01425, -1.46232 )

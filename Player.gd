@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var speed = 0.5
+var speed = 0.3
 var acceleration = 10
 var gravity = 0.02
 var jump = 1.2
@@ -64,9 +64,9 @@ func _physics_process(delta):
 		
 		direction += transform.basis.x
 	if PlayerStats.water > 0 and PlayerStats.food > 0 and Input.is_action_just_pressed("sprint"):
-		speed = 0.7
-	if Input.is_action_just_released("sprint"):
 		speed = 0.5
+	if Input.is_action_just_released("sprint"):
+		speed = 0.3
 	if Input.is_action_pressed("sprint"):
 		PlayerStats.change_water(-0.01)
 		PlayerStats.change_food(-0.003)
@@ -104,4 +104,4 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("right_click"):
 		pass
-
+		
