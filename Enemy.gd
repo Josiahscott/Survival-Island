@@ -5,7 +5,8 @@ export var speed = 100
 var shoot = null
 var target = null
 var velocity = Vector3.ZERO
-var gravity = 0
+#var gravity = 0
+
 
 onready var player = owner.get_node("Player")
 
@@ -23,10 +24,10 @@ func _physics_process(delta):
 		target = null
 		
 		
-	velocity.y -= gravity *delta
-	velocity = move_and_slide(velocity, Vector3.UP)
+#	velocity.y -= gravity *delta
+#	velocity = move_and_slide(velocity, Vector3.UP)
 
-
+	
 func _on_Area2_body_entered(body):
 	if body.is_in_group("Player"):
 		PlayerStats.change_health(-5)

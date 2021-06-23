@@ -72,6 +72,9 @@ func _physics_process(delta):
 		PlayerStats.change_food(-0.003)
 	if PlayerStats.get_water() <= 0:
 		PlayerStats.change_health(-0.001)
+	if PlayerStats.get_food() > 95:
+		PlayerStats.change_health(0.004)
+	
 	
 	if int(PlayerStats.get_health()) <= 20:
 		pass #RED BLOOD USERINTERFACE
