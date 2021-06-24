@@ -8,7 +8,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("use"):
 			print("Pick up sword")
 			queue_free()
-			
+			Inventory.sword()
 		
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):

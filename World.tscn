@@ -14,7 +14,7 @@
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Bld_Fence_01.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Campfire.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Crate_01.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Collision AdventureModelsSynty/SM_Wep_Sword_01.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sword.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Wep_Axe_01.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Logpile_01.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Prop_Meat_01.tscn" type="PackedScene" id=19]
@@ -42,7 +42,7 @@ omni_shadow_mode = 0
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 
 [node name="Water" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.814281, 11.5258 )
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.32983, 11.5258 )
 visible = false
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
@@ -108,8 +108,8 @@ transform = Transform( 0.0909611, 0.0782693, 0, -0.0782693, 0.0909611, 0, 0, 0, 
 [node name="SM_Prop_Crate_03" parent="Town1/Decoration" instance=ExtResource( 14 )]
 transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.43945, -44.7516 )
 
-[node name="SM_Wep_Sword_01" parent="Town1/Decoration" instance=ExtResource( 15 )]
-transform = Transform( -0.0966118, -0.0305367, 0.0642933, 0.0038765, 0.105977, 0.0561598, -0.0710706, 0.0472911, -0.0843353, -57.6366, 6.31828, -44.7622 )
+[node name="Sword" parent="Town1/Decoration" instance=ExtResource( 15 )]
+transform = Transform( -0.0966123, -0.0305359, 0.0642933, 0.00387674, 0.105977, 0.056159, -0.0710706, 0.0472908, -0.0843359, -57.637, 6.318, -44.762 )
 
 [node name="SM_Wep_Axe_01" parent="Town1/Decoration" instance=ExtResource( 16 )]
 transform = Transform( -0.108564, -0.0434101, -0.0270093, -0.048544, 0.107415, 0.0224809, 0.0160445, 0.0312646, -0.114739, -59.6099, 6.44313, -46.403 )

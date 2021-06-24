@@ -121,12 +121,3 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = 318.0
-margin_top = 511.0
-margin_right = 701.0
-margin_bottom = 554.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
