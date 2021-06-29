@@ -1,8 +1,10 @@
 extends Node
+var Inventoryitems = []
 
-export (Array) var Inventory = [null,null,null,null,null];
+func Inventoryitems():
+	Inventoryitems = []
 
 func sword():
-	Inventory.append("Sword")
-	Inventory.remove("null")
-	print(Inventory)
+	Inventoryitems.append("Sword")
+#	Inventory.remove("null")
+	print(Inventoryitems)

@@ -73,7 +73,7 @@ text = "Press E to use"
 [node name="Player" parent="." groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -41.2817, 4.43613, -26.6687 )
+transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -35.0112, 4.43613, -20.5006 )
 
 [node name="Enemies" type="Spatial" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3806, 2.75892, -25.9771 )
