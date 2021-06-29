@@ -17,6 +17,10 @@ onready var ray = $Head/InteractRay
 onready var head = $Head
 onready var gc = $GroundCast
 
+func _process(delta):
+	if "Sword" in Inventory.Inventoryitems:
+		$Sword.show()
+
 func _ready():
 	$Sword.hide()
 	prev_pos = global_transform.origin
