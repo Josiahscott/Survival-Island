@@ -15,7 +15,9 @@ radius = 0.635178
 
 [sub_resource type="CubeMesh" id=4]
 
-[node name="FPS" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=[
+"Player",
+]]
 collision_layer = 2
 script = ExtResource( 1 )
 
