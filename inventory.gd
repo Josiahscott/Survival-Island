@@ -45,9 +45,10 @@ func _process(delta):
 		#DROP ITEM
 	if "Sword" in Inventory.Inventoryitems and Input.is_action_pressed("Drop") and slotactive1 == true:
 		print("DROP")
-		Player.get_node("Sword").hide()
-		InventoryUI.get_node("HBoxContainer/HB1/Itemtest").hide()
-
+		#REMOVE SWORD FROM LIST
+#		Player.get_node("Sword").hide()
+#		InventoryUI.get_node("HBoxContainer/HB1/Itemtest").hide()
+#
 
 
 	if Input.is_action_pressed("slot_2"):

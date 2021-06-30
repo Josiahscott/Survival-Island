@@ -46,6 +46,8 @@ transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.32983, 11.5258 )
 visible = false
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
+margin_left = -0.306488
+margin_right = -0.306519
 
 [node name="Press E UI" type="CanvasLayer" parent="."]
 script = ExtResource( 11 )
@@ -54,25 +56,23 @@ script = ExtResource( 11 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -149.0
+margin_top = -181.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="Press E UI/MarginContainer"]
 margin_right = 1000.0
-margin_bottom = 149.0
+margin_bottom = 181.0
 
 [node name="Label" type="Label" parent="Press E UI/MarginContainer/CenterContainer"]
 margin_left = 455.0
-margin_top = 67.0
+margin_top = 83.0
 margin_right = 545.0
-margin_bottom = 81.0
+margin_bottom = 97.0
 text = "Press E to use"
 
-[node name="Player" parent="." groups=[
-"Player",
-] instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 transform = Transform( -0.0246131, 0, -0.0708463, 0, 0.075, 0, 0.0708463, 0, -0.0246131, -35.0112, 4.43613, -20.5006 )
 
 [node name="Enemies" type="Spatial" parent="."]
