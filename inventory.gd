@@ -7,13 +7,11 @@ var slotactive1 = false
 
 
 
-
 func Inventoryitems():
 	Inventoryitems = []
 
 func sword():
 	Inventoryitems.append("Sword")
-#	Inventory.remove("null")
 	print(Inventoryitems)
 	
 func _ready():
@@ -23,8 +21,9 @@ func _ready():
 	InventoryUI.get_node("HBoxContainer/HB4/Outside4").hide()
 	InventoryUI.get_node("HBoxContainer/HB5/Outside5").hide()
 	
+
 func _process(delta):
-	if "Sword" in Inventory.Inventoryitems:
+	if "Sword" in Inventoryitems:
 		InventoryUI.get_node("HBoxContainer/HB1/Itemtest").show()
 	
 	
@@ -43,12 +42,12 @@ func _process(delta):
 		Player.get_node("Sword").show()
 		
 		#DROP ITEM
-	if "Sword" in Inventory.Inventoryitems and Input.is_action_pressed("Drop") and slotactive1 == true:
+	if "Sword" in Inventory.Inventoryitems and Input.is_action_pressed("Drop"):
 		print("DROP")
-		#REMOVE SWORD FROM LIST
-#		Player.get_node("Sword").hide()
-#		InventoryUI.get_node("HBoxContainer/HB1/Itemtest").hide()
-#
+		Inventoryitems.remove("Sword")
+		Player.get_node("Sword").hide()
+		InventoryUI.get_node("HBoxContainer/HB1/Itemtest").hide()
+
 
 
 	if Input.is_action_pressed("slot_2"):
