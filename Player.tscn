@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://AdventureModelsSynty/SM_Wep_Sword_01.gltf" type="PackedScene" id=2]
+[ext_resource path="res://AdventureModelsSynty/SM_Wep_Axe_01.gltf" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -55,5 +56,8 @@ shape = SubResource( 3 )
 
 [node name="Sword" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612728, -3.45449e-08, -0.59275, -0.764527, 0.253268, 0.618363, 0.440227, -0.583413 )
+
+[node name="Axe" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.155185, 0.200156, 0.967396, -0.790294, 0.612728, 0, -0.59275, -0.764527, 0.253268, 0.618, 0.44, -0.481344 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

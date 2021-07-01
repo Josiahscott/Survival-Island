@@ -20,6 +20,7 @@ onready var gc = $GroundCast
 
 func _ready():
 	$Sword.hide()
+	$Axe.hide()
 	prev_pos = global_transform.origin
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
