@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://AdventureModelsSynty/SM_Wep_Sword_01.gltf" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -12,8 +13,6 @@ mid_height = 1.5
 
 [sub_resource type="CylinderShape" id=3]
 radius = 0.635178
-
-[sub_resource type="CubeMesh" id=4]
 
 [node name="Player" type="KinematicBody" groups=[
 "Player",
@@ -54,9 +53,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 3 )
 
-[node name="Sword" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.6011 )
-mesh = SubResource( 4 )
-material/0 = null
+[node name="Sword" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612728, -3.45449e-08, -0.59275, -0.764527, 0.253268, 0.618363, 0.440227, -0.583413 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
