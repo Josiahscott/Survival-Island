@@ -3,7 +3,6 @@ var Inventoryitems = []
 onready var InventoryUI = get_tree().get_nodes_in_group("InventoryUI")[0]
 onready var Player = get_tree().get_nodes_in_group("Player")[0]
 
-#var slotactive1 = false
 
 
 
@@ -28,7 +27,7 @@ func _ready():
 
 func _process(delta):
 	if "Sword" in Inventoryitems:
-		InventoryUI.get_node("HBoxContainer/HB1/Itemtest").show()
+		InventoryUI.get_node("HBoxContainer/HB1/Sword").show()
 	if "Axe" in Inventoryitems:
 		InventoryUI.get_node("HBoxContainer/HB2/Axe").show()
 	
@@ -56,7 +55,7 @@ func _process(delta):
 		print("DROP")
 		Inventoryitems.remove("Sword")
 		Player.get_node("Sword").hide()
-		InventoryUI.get_node("HBoxContainer/HB1/Itemtest").hide()
+		InventoryUI.get_node("HBoxContainer/HB1/Sword").hide()
 
 
 

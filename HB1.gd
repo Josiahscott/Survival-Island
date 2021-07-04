@@ -1,4 +1,4 @@
 extends Container
 
 func _ready():
-	$Itemtest.hide()
+	$Sword.hide()
