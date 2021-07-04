@@ -45,7 +45,7 @@ omni_shadow_mode = 0
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 
 [node name="Water" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.2, 0, 0, 0, 0.199981, 0.00277149, 0, -0.00277149, 0.199981, 0, 1.14109, 11.5258 )
+transform = Transform( 0.2, 0, 0, 0, 0.199981, 0.00277149, 0, -0.00277149, 0.199981, 0, 1.14109, 4.21463 )
 
 [node name="UserInterface" parent="." instance=ExtResource( 3 )]
 
