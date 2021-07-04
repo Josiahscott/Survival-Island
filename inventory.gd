@@ -3,7 +3,11 @@ var Inventoryitems = []
 onready var InventoryUI = get_tree().get_nodes_in_group("InventoryUI")[0]
 onready var Player = get_tree().get_nodes_in_group("Player")[0]
 
-
+var slotactive1 = false
+var slotactive2 = false
+var slotactive3 = false
+var slotactive4 = false
+var slotactive5 = false
 
 
 func Inventoryitems():
@@ -42,16 +46,19 @@ func _process(delta):
 		
 		#Hide other items
 		Player.get_node("Axe").hide()
-		
+		slotactive2 = false
+		slotactive3 = false
+		slotactive4 = false
+		slotactive5 = false
 		
 		#Show the slots and item
 		InventoryUI.get_node("HBoxContainer/HB1/Outside1").show()
-#		var slotactive1 = true
+		slotactive1 = true
 	if "Sword" in Inventory.Inventoryitems and Input.is_action_pressed("slot_1"):
 		Player.get_node("Sword").show()
 		
 		#DROP ITEM
-	if "Sword" in Inventory.Inventoryitems and Input.is_action_pressed("Drop"):
+	if "Sword" in Inventory.Inventoryitems and Input.is_action_pressed("Drop") and slotactive1 == true:
 		print("DROP")
 		Inventoryitems.remove("Sword")
 		Player.get_node("Sword").hide()
@@ -70,15 +77,18 @@ func _process(delta):
 		
 		#Hide other items
 		Player.get_node("Sword").hide()
-		
+		slotactive1 = false
+		slotactive3 = false
+		slotactive4 = false
+		slotactive2 = false
 		#Show the slots and item
 		InventoryUI.get_node("HBoxContainer/HB2/Outside2").show()
-#		var slotactive2 = true
+		slotactive2 = true
 	if "Axe" in Inventory.Inventoryitems and Input.is_action_pressed("slot_2"):
 		Player.get_node("Axe").show()
 		
 		#DROP ITEM
-	if "Axe" in Inventory.Inventoryitems and Input.is_action_pressed("Drop"):
+	if "Axe" in Inventory.Inventoryitems and Input.is_action_pressed("Drop") and slotactive2 == true:
 		print("DROP")
 		Inventoryitems.remove("Axe")
 		Player.get_node("Axe").hide()
