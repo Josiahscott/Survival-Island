@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AXENEW.png-a53898b6b2938fb2a6cb3af22039d942.stex"
+path="res://.import/Swordholder.png-22b6857427c7dd2435068b04f9437b6a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ITEMS/AXENEW.png"
-dest_files=[ "res://.import/AXENEW.png-a53898b6b2938fb2a6cb3af22039d942.stex" ]
+source_file="res://ITEMS/Swordholder.png"
+dest_files=[ "res://.import/Swordholder.png-22b6857427c7dd2435068b04f9437b6a.stex" ]
 
 [params]
 
