@@ -21,6 +21,9 @@ onready var gc = $GroundCast
 func _ready():
 	$Sword.hide()
 	$Axe.hide()
+	$Water.hide()
+	$Apple.hide()
+	$Spear.hide()
 	prev_pos = global_transform.origin
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -75,6 +78,10 @@ func _physics_process(delta):
 		PlayerStats.change_food(-0.003)
 	if PlayerStats.get_water() <= 0:
 		PlayerStats.change_health(-0.001)
+	if PlayerStats.get_water() >= 0:
+		PlayerStats.change_water(-0.0001)
+	if PlayerStats.get_food() >= 0:
+		PlayerStats.change_food(-0.0001)
 	if PlayerStats.get_food() > 95:
 		PlayerStats.change_health(0.004)
 	

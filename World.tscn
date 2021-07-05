@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Island 1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Water.tscn" type="PackedScene" id=2]
@@ -23,12 +23,24 @@
 [ext_resource path="res://Barrel.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Bld_HutDoor_02.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Axe.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Waterbottle.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Apple.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Spear.tscn" type="PackedScene" id=26]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
 background_color = Color( 0.72549, 0.956863, 1, 1 )
 
 [node name="World" type="Spatial"]
+
+[node name="Spear" parent="." instance=ExtResource( 26 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -32.9974, 2.43008, -22.9558 )
+
+[node name="Apple" parent="." instance=ExtResource( 25 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -34.8156, 2.14499, -19.4362 )
+
+[node name="Water2" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.156563, 0, -0.124451, -0.0624041, 0.173039, -0.0785062, 0.107674, 0.100287, 0.135457, -35.2212, 2.02255, -18.4714 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

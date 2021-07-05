@@ -20,6 +20,18 @@ func sword():
 func axe():
 	Inventoryitems.append("Axe")
 	print(Inventoryitems)
+
+func water():
+	Inventoryitems.append("Water")
+	print(Inventoryitems)
+	
+func apple():
+	Inventoryitems.append("Apple")
+	print(Inventoryitems)
+	
+func spear():
+	Inventoryitems.append("Spear")
+	print(Inventoryitems)
 	
 func _ready():
 	InventoryUI.get_node("HBoxContainer/HB1/Outside1").hide()
@@ -34,8 +46,12 @@ func _process(delta):
 		InventoryUI.get_node("HBoxContainer/HB1/Sword").show()
 	if "Axe" in Inventoryitems:
 		InventoryUI.get_node("HBoxContainer/HB2/Axe").show()
-	
-	
+	if "Water" in Inventoryitems:
+		InventoryUI.get_node("HBoxContainer/HB5/Water").show()
+	if "Apple" in Inventoryitems:
+		InventoryUI.get_node("HBoxContainer/HB4/Apple").show()
+	if "Spear" in Inventoryitems:
+		InventoryUI.get_node("HBoxContainer/HB3/Spear").show()
 	
 	
 	if Input.is_action_pressed("slot_1"):
@@ -46,6 +62,9 @@ func _process(delta):
 		
 		#Hide other items
 		Player.get_node("Axe").hide()
+		Player.get_node("Water").hide()
+		Player.get_node("Apple").hide()
+		Player.get_node("Spear").hide()
 		slotactive2 = false
 		slotactive3 = false
 		slotactive4 = false
@@ -63,7 +82,10 @@ func _process(delta):
 		Inventoryitems.remove("Sword")
 		Player.get_node("Sword").hide()
 		InventoryUI.get_node("HBoxContainer/HB1/Sword").hide()
-
+		
+		#USE ITEM
+	if slotactive1 and "Sword" in Inventory.Inventoryitems and Input.is_action_pressed("left_click"):
+		print("Sword")
 
 
 	if Input.is_action_pressed("slot_2"):
@@ -77,6 +99,9 @@ func _process(delta):
 		
 		#Hide other items
 		Player.get_node("Sword").hide()
+		Player.get_node("Water").hide()
+		Player.get_node("Apple").hide()
+		Player.get_node("Spear").hide()
 		slotactive1 = false
 		slotactive3 = false
 		slotactive4 = false
@@ -93,10 +118,15 @@ func _process(delta):
 		Inventoryitems.remove("Axe")
 		Player.get_node("Axe").hide()
 		InventoryUI.get_node("HBoxContainer/HB2/Axe").hide()
+		#USE ITEM
+	if slotactive2 and "Axe" in Inventory.Inventoryitems and Input.is_action_pressed("left_click"):
+		print("Axe")
 
 
 
 	if Input.is_action_pressed("slot_3"):
+		if "Spear" in Inventoryitems:
+			InventoryUI.get_node("HBoxContainer/HB3/Spear").show()
 		#Hide slots
 		InventoryUI.get_node("HBoxContainer/HB1/Outside1").hide()
 		InventoryUI.get_node("HBoxContainer/HB2/Outside2").hide()
@@ -104,16 +134,37 @@ func _process(delta):
 		InventoryUI.get_node("HBoxContainer/HB5/Outside5").hide()
 		
 		#Hide other items
+		#Hide other items
 		Player.get_node("Sword").hide()
 		Player.get_node("Axe").hide()
-		
+		Player.get_node("Apple").hide()
+		Player.get_node("Water").hide()
+		slotactive1 = false
+		slotactive2 = false
+		slotactive4 = false
+		slotactive5 = false
 		#Show the slots and item
 		InventoryUI.get_node("HBoxContainer/HB3/Outside3").show()
-
+		slotactive3 = true
+	if "Spear" in Inventory.Inventoryitems and Input.is_action_pressed("slot_3"):
+		Player.get_node("Spear").show()
+		
+		#DROP ITEM
+	if "Spear" in Inventory.Inventoryitems and Input.is_action_pressed("Drop") and slotactive3 == true:
+		print("DROP")
+		Inventoryitems.remove("Spear")
+		Player.get_node("Spear").hide()
+		InventoryUI.get_node("HBoxContainer/HB3/Spear").hide()
+		#USE ITEM
+	if slotactive3 and "Spear" in Inventory.Inventoryitems and Input.is_action_pressed("left_click"):
+		print("Spear")
+		
 
 
 
 	if Input.is_action_pressed("slot_4"):
+		if "Apple" in Inventoryitems:
+			InventoryUI.get_node("HBoxContainer/HB4/Apple").show()
 		#Hide slots
 		InventoryUI.get_node("HBoxContainer/HB1/Outside1").hide()
 		InventoryUI.get_node("HBoxContainer/HB2/Outside2").hide()
@@ -121,16 +172,41 @@ func _process(delta):
 		InventoryUI.get_node("HBoxContainer/HB5/Outside5").hide()
 		
 		#Hide other items
+		#Hide other items
 		Player.get_node("Sword").hide()
 		Player.get_node("Axe").hide()
-		
+		Player.get_node("Water").hide()
+		Player.get_node("Spear").hide()
+		slotactive1 = false
+		slotactive2 = false
+		slotactive3 = false
+		slotactive5 = false
 		#Show the slots and item
 		InventoryUI.get_node("HBoxContainer/HB4/Outside4").show()
-
+		slotactive4 = true
+	if "Apple" in Inventory.Inventoryitems and Input.is_action_pressed("slot_4"):
+		Player.get_node("Apple").show()
+		
+		#DROP ITEM
+	if "Apple" in Inventory.Inventoryitems and Input.is_action_pressed("Drop") and slotactive4 == true:
+		print("DROP")
+		Inventoryitems.remove("Apple")
+		Player.get_node("Apple").hide()
+		InventoryUI.get_node("HBoxContainer/HB4/Apple").hide()
+		#USE ITEM
+	if slotactive4 and "Apple" in Inventory.Inventoryitems and Input.is_action_pressed("use"):
+		print("Eat")
+		PlayerStats.change_food(75)
+		Inventoryitems.remove("Apple")
+		Player.get_node("Apple").hide()
+		InventoryUI.get_node("HBoxContainer/HB4/Apple").hide()
+		
 
 
 
 	if Input.is_action_pressed("slot_5"):
+		if "Water" in Inventoryitems:
+			InventoryUI.get_node("HBoxContainer/HB5/Water").show()
 		#Hide slots
 		InventoryUI.get_node("HBoxContainer/HB1/Outside1").hide()
 		InventoryUI.get_node("HBoxContainer/HB2/Outside2").hide()
@@ -138,8 +214,32 @@ func _process(delta):
 		InventoryUI.get_node("HBoxContainer/HB4/Outside4").hide()
 		
 		#Hide other items
+		#Hide other items
 		Player.get_node("Sword").hide()
 		Player.get_node("Axe").hide()
-		
+		Player.get_node("Apple").hide()
+		Player.get_node("Spear").hide()
+		slotactive1 = false
+		slotactive2 = false
+		slotactive3 = false
+		slotactive4 = false
 		#Show the slots and item
 		InventoryUI.get_node("HBoxContainer/HB5/Outside5").show()
+		slotactive5 = true
+	if "Water" in Inventory.Inventoryitems and Input.is_action_pressed("slot_5"):
+		Player.get_node("Water").show()
+		
+		#DROP ITEM
+	if "Water" in Inventory.Inventoryitems and Input.is_action_pressed("Drop") and slotactive5 == true:
+		print("DROP")
+		Inventoryitems.remove("Water")
+		Player.get_node("Water").hide()
+		InventoryUI.get_node("HBoxContainer/HB5/Water").hide()
+		#USE ITEM
+	if slotactive5 and "Water" in Inventory.Inventoryitems and Input.is_action_pressed("use"):
+		print("Drink")
+		PlayerStats.change_water(50)
+		Inventoryitems.remove("Water")
+		Player.get_node("Water").hide()
+		InventoryUI.get_node("HBoxContainer/HB5/Water").hide()
+		
