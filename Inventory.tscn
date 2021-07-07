@@ -9,7 +9,7 @@
 [ext_resource path="res://ITEMS/Swordplace.png" type="Texture" id=7]
 [ext_resource path="res://ITEMS/Outline.png" type="Texture" id=8]
 [ext_resource path="res://ITEMS/WATERTEST.png" type="Texture" id=9]
-[ext_resource path="res://ITEMS/APPLETEST.png" type="Texture" id=10]
+[ext_resource path="res://ITEMS/Apple.png" type="Texture" id=10]
 [ext_resource path="res://ITEMS/Axeplace.png" type="Texture" id=11]
 [ext_resource path="res://ITEMS/Axeoutline.png" type="Texture" id=12]
 

@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Apple.gd" type="Script" id=1]
+[ext_resource path="res://ITEMS/Apple.gltf" type="PackedScene" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.290535, 0.319997, 0.258173 )
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.424243, 0.356068, 0.44902 )
-
-[sub_resource type="CubeMesh" id=3]
 
 [node name="Apple" type="Area" groups=[
 "Interactable",
@@ -25,10 +24,8 @@ shape = SubResource( 1 )
 transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.24869, 0 )
 shape = SubResource( 2 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0 )
-mesh = SubResource( 3 )
-material/0 = null
+[node name="Apple" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 
 [connection signal="body_entered" from="." to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Area_body_exited"]
