@@ -5,6 +5,7 @@
 [ext_resource path="res://AdventureModelsSynty/SM_Wep_Axe_01.gltf" type="PackedScene" id=3]
 [ext_resource path="res://AdventureModelsSynty/SM_Item_Waterskin_01.gltf" type="PackedScene" id=4]
 [ext_resource path="res://ITEMS/Apple.gltf" type="PackedScene" id=5]
+[ext_resource path="res://ITEMS/Spear.gltf" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -16,8 +17,6 @@ mid_height = 1.5
 
 [sub_resource type="CylinderShape" id=3]
 radius = 0.635178
-
-[sub_resource type="CubeMesh" id=4]
 
 [node name="Player" type="KinematicBody" groups=[
 "Player",
@@ -64,15 +63,13 @@ transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612728, -3.454
 [node name="Axe" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.155185, 0.200156, 0.967396, -0.790294, 0.612728, 0, -0.59275, -0.764527, 0.253268, 0.618, 0.44, -0.481344 )
 
-[node name="Spear" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57683, -4.10829 )
-mesh = SubResource( 4 )
-material/0 = null
-
 [node name="Water" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.155185, 0.200156, 0.967396, -0.790294, 0.612728, 0, -0.59275, -0.764527, 0.253268, 0.615864, 0.435876, -0.588496 )
 
 [node name="Apple" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.669061, 0.472126, -0.649914 )
+
+[node name="Spear" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.5, 0, 0, 0, 0.288409, 0.408437, 0, -0.408437, 0.288409, 0.6959, 0.65508, -0.826152 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

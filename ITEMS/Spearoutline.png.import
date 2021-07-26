@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Outline.png-cde6149b823b9e340e60f50dd42b612f.stex"
+path="res://.import/Spearoutline.png-5bef656a43d2daa79f4b8e66d76499ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ITEMS/Outline.png"
-dest_files=[ "res://.import/Outline.png-cde6149b823b9e340e60f50dd42b612f.stex" ]
+source_file="res://ITEMS/Spearoutline.png"
+dest_files=[ "res://.import/Spearoutline.png-5bef656a43d2daa79f4b8e66d76499ca.stex" ]
 
 [params]
 
