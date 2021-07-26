@@ -4,7 +4,6 @@ var speed = 0.3
 var acceleration = 10
 var gravity = 0.02
 var jump = 1.2
-
 var mouse_sensitivity = 0.2
 
 var direction = Vector3()
@@ -47,6 +46,7 @@ func check_ray():
 		PlayerStats.text_display = ""
 
 func _physics_process(delta):
+
 	check_ray()
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 	

@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 PlayerStats="*res://player_stats.gd"
 Inventory="*res://inventory.gd"
+EnemyStats="*res://Enemy_stats.gd"
 
 [display]
 
