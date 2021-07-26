@@ -74,7 +74,7 @@ margin_bottom = 96.0
 text = "Press E to use"
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( -0.0736612, 0, -0.0141076, 0, 0.075, 0, 0.0141076, 0, -0.0736612, 36.3765, 4.94739, 6.46178 )
+transform = Transform( -0.0736612, 0, -0.0141076, 0, 0.075, 0, 0.0141076, 0, -0.0736612, -34.0114, 4.94739, -22.8707 )
 
 [node name="Enemies" type="Spatial" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3806, 2.75892, -25.9771 )
