@@ -81,7 +81,7 @@ transform = Transform( -0.0736612, 0, -0.0141076, 0, 0.075, 0, 0.0141076, 0, -0.
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3806, 2.75892, -25.9771 )
 
 [node name="Enemy1" parent="Enemies" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.85117, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.85117, 34.2574 )
 
 [node name="Town1" type="Spatial" parent="."]
 transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 23.3182, 13.6805, 5.479 )
@@ -114,7 +114,7 @@ transform = Transform( 0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -56.7818, 6.43945, -4
 transform = Transform( -0.0966123, -0.0305359, 0.0642933, 0.00387674, 0.105977, 0.056159, -0.0710706, 0.0472908, -0.0843359, -57.637, 6.318, -44.762 )
 
 [node name="Spear" parent="Town1/Decoration" instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.1715, 6.80015, -46.5937 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.1715, 6.56314, -46.5937 )
 
 [node name="SM_Wep_Axe_01" parent="Town1/Decoration" instance=ExtResource( 16 )]
 transform = Transform( -0.108564, -0.0434101, -0.0270093, -0.048544, 0.107415, 0.0224809, 0.0160445, 0.0312646, -0.114739, -59.6099, 6.44313, -46.403 )
