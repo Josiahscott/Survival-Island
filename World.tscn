@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Island 1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Water.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Env_Flower_05.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Collision AdventureModelsSynty/SM_Env_Grass_01.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Spear.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Axe.tscn" type="PackedScene" id=26]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -116,8 +117,8 @@ transform = Transform( -0.0966123, -0.0305359, 0.0642933, 0.00387674, 0.105977, 
 [node name="Spear" parent="Town1/Decoration" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.1715, 6.56314, -46.5937 )
 
-[node name="SM_Wep_Axe_01" parent="Town1/Decoration" instance=ExtResource( 16 )]
-transform = Transform( -0.108564, -0.0434101, -0.0270093, -0.048544, 0.107415, 0.0224809, 0.0160445, 0.0312646, -0.114739, -59.6099, 6.44313, -46.403 )
+[node name="Axe" parent="Town1/Decoration" instance=ExtResource( 26 )]
+transform = Transform( -0.108564, -0.0434091, -0.027009, -0.048543, 0.107416, 0.0224816, 0.0160441, 0.031265, -0.114739, -59.61, 6.443, -46.403 )
 
 [node name="SM_Prop_Logpile_01" parent="Town1/Decoration" instance=ExtResource( 17 )]
 transform = Transform( -0.0176192, 0, 0.1187, 0, 0.12, 0, -0.1187, 0, -0.0176192, -59.7277, 6.3988, -46.3953 )

@@ -85,8 +85,9 @@ func _process(delta):
 		
 		#USE ITEM
 	if slotactive1 and "Sword" in Inventory.Inventoryitems and Input.is_action_pressed("left_click"):
-		print("Sword")
-
+		Player.swordhit()
+		print("NEED WAIT TIME - MEDIUM")
+	
 
 	if Input.is_action_pressed("slot_2"):
 		if "Axe" in Inventoryitems:
@@ -120,8 +121,8 @@ func _process(delta):
 		InventoryUI.get_node("HBoxContainer/HB2/Axe").hide()
 		#USE ITEM
 	if slotactive2 and "Axe" in Inventory.Inventoryitems and Input.is_action_pressed("left_click"):
-		print("Axe")
-
+		Player.axehit()
+		print("NEED WAIT TIME - LONG")
 
 
 	if Input.is_action_pressed("slot_3"):
@@ -157,8 +158,8 @@ func _process(delta):
 		InventoryUI.get_node("HBoxContainer/HB3/Spear").hide()
 		#USE ITEM
 	if slotactive3 and "Spear" in Inventory.Inventoryitems and Input.is_action_pressed("left_click"):
-		print("Spear")
-		
+		Player.spearhit()
+		print("NEED WAIT TIME - SHORT")
 
 
 

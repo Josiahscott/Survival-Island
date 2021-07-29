@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://AdventureModelsSynty/SM_Wep_Sword_01.gltf" type="PackedScene" id=2]
@@ -17,6 +17,81 @@ mid_height = 1.5
 
 [sub_resource type="CylinderShape" id=3]
 radius = 0.635178
+
+[sub_resource type="Animation" id=5]
+resource_name = "Spear"
+length = 0.45
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spear:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.24, 0.34, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -54.773, 0, 0 ), Vector3( -65.222, 0, 0 ), Vector3( -77.583, 0, 0 ), Vector3( -65.222, 0, 0 ), Vector3( -54.773, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spear:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.24, 0.34, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.6959, 0.65508, -0.910034 ), Vector3( 0.6959, 0.616781, -1.04284 ), Vector3( 0.6959, 0.57767, -1.21114 ), Vector3( 0.6959, 0.616781, -1.04284 ), Vector3( 0.6959, 0.65508, -0.910034 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Sword"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sword:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.02, 0, 0.03, 0.06, 0.09, 0.11, 0.13, 0.17, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 6.04263e-06, 75.329, -52.213 ), Vector3( 6.04263e-06, 75.329, -52.213 ), Vector3( 10.7695, 75.0599, -55.0674 ), Vector3( 30.9414, 85.9513, -56.4904 ), Vector3( 49.1414, 100.596, -56.678 ), Vector3( 68.2551, 123.269, -47.0449 ), Vector3( 73.1093, 130.625, -58.8719 ), Vector3( 50.1687, 107.04, -89.7857 ), Vector3( 6.04263e-06, 75.329, -52.213 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "axeswing_anim"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axe:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.03, -0.02, -0.01, 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.618, 0.44, -0.481344 ), Vector3( 0.618, 0.44, -0.481344 ), Vector3( 0.618, 0.44, -0.481344 ), Vector3( 0.618, 0.44, -0.481344 ), Vector3( 0.618, 0.684922, -0.354411 ), Vector3( 0.618, 0.44, -0.481344 ), Vector3( 0.412143, 0.44, -0.561733 ), Vector3( 0.618, 0.44, -0.481344 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axe:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.03, -0.02, -0.01, 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( -3.79217e-05, 75.329, -52.213 ), Vector3( -3.79217e-05, 75.329, -52.213 ), Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( 35.3626, 71.9067, -62.9206 ), Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( 63.933, 118.126, -55.5485 ), Vector3( 35.3626, 90.6357, -62.9206 ) ]
+}
 
 [node name="Player" type="KinematicBody" groups=[
 "Player",
@@ -58,10 +133,13 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 3 )
 
 [node name="Sword" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612728, -3.45449e-08, -0.59275, -0.764527, 0.253268, 0.618363, 0.440227, -0.583413 )
+transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612727, -1.05464e-07, -0.59275, -0.764527, 0.253268, 0.618363, 0.440227, -0.583413 )
 
 [node name="Axe" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.155185, 0.200156, 0.967396, -0.790294, 0.612728, 0, -0.59275, -0.764527, 0.253268, 0.618, 0.44, -0.481344 )
+transform = Transform( -0.0946751, 0.394327, 0.91408, -0.804147, 0.51098, -0.303722, -0.586843, -0.76381, 0.268719, 0.618, 0.562461, -0.417878 )
+
+[node name="Spear" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.5, 0, 0, 0, 0.288409, 0.408437, 0, -0.408437, 0.288409, 0.6959, 0.65508, -0.910034 )
 
 [node name="Water" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.155185, 0.200156, 0.967396, -0.790294, 0.612728, 0, -0.59275, -0.764527, 0.253268, 0.615864, 0.435876, -0.588496 )
@@ -69,7 +147,15 @@ transform = Transform( 0.155185, 0.200156, 0.967396, -0.790294, 0.612728, 0, -0.
 [node name="Apple" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.669061, 0.472126, -0.649914 )
 
-[node name="Spear" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.5, 0, 0, 0, 0.288409, 0.408437, 0, -0.408437, 0.288409, 0.6959, 0.65508, -0.826152 )
+[node name="Spearhit" type="AnimationPlayer" parent="."]
+anims/Spear = SubResource( 5 )
+
+[node name="SwordHit" type="AnimationPlayer" parent="." groups=[
+"swordhit",
+]]
+anims/Sword = SubResource( 4 )
+
+[node name="axeswing" type="AnimationPlayer" parent="."]
+anims/axeswing_anim = SubResource( 6 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

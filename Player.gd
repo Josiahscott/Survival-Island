@@ -1,5 +1,9 @@
 extends KinematicBody
 
+var sword_damage = 40
+var axe_damage = 100
+var spear_damage = 20
+
 var speed = 0.3
 var acceleration = 10
 var gravity = 0.02
@@ -15,7 +19,17 @@ var prev_pos
 onready var ray = $Head/InteractRay
 onready var head = $Head
 onready var gc = $GroundCast
+onready var swordhitanim = $SwordHit
+onready var axehitanim = $axeswing
+onready var spearhitanim = $Spearhit
+func swordhit():
+	swordhitanim.play("Sword")
 
+func axehit():
+	axehitanim.play("axeswing_anim")
+
+func spearhit():
+	spearhitanim.play("Spear")
 
 func _ready():
 	$Sword.hide()
