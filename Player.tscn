@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://AdventureModelsSynty/SM_Wep_Sword_01.gltf" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://AdventureModelsSynty/SM_Item_Waterskin_01.gltf" type="PackedScene" id=4]
 [ext_resource path="res://ITEMS/Apple.gltf" type="PackedScene" id=5]
 [ext_resource path="res://ITEMS/Spear.gltf" type="PackedScene" id=6]
+[ext_resource path="res://Torch.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -93,7 +94,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 2.87256, 2.2551, 2.63706 )
+extents = Vector3( 0.961283, 1.38482, 2.16196 )
 
 [node name="Player" type="KinematicBody" groups=[
 "Player",
@@ -139,7 +140,6 @@ transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612727, -1.054
 
 [node name="Axe" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.0946751, 0.394327, 0.91408, -0.804147, 0.51098, -0.303722, -0.586843, -0.76381, 0.268719, 0.618, 0.562461, -0.417878 )
-visible = false
 
 [node name="Spear" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.5, 0, 0, 0, 0.288409, 0.408437, 0, -0.408437, 0.288409, 0.6959, 0.65508, -0.910034 )
@@ -161,9 +161,12 @@ anims/Sword = SubResource( 5 )
 [node name="axeswing" type="AnimationPlayer" parent="."]
 anims/axeswing_anim = SubResource( 6 )
 
+[node name="Torch" parent="." instance=ExtResource( 7 )]
+
 [node name="hitbox" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="hitbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.93091 )
 shape = SubResource( 7 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

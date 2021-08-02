@@ -1,9 +1,10 @@
 extends KinematicBody
 
+var torch = true
 var sword_damage = 20
 var axe_damage = 50
 var spear_damage = 10
-
+onready var torch_item = $torch
 onready var hitbox = get_node("hitbox")
 onready var blood_splatter = preload("res://Blood.tscn")
 var sword_timer : Timer
@@ -28,13 +29,14 @@ onready var gc = $GroundCast
 onready var swordhitanim = $SwordHit
 onready var axehitanim = $axeswing
 onready var spearhitanim = $Spearhit
+
+
 func swordhit():
 	if sword_timer.is_stopped():
 		swordhitanim.play("Sword")
 		sword_timer.start()
 		for body in hitbox.get_overlapping_bodies():
 			if body.is_in_group("Enemy"):
-
 				var b = blood_splatter.instance()
 				b.global_transform.origin = body.global_transform.origin
 				get_tree().get_root().add_child(b)
@@ -54,6 +56,7 @@ func axehit():
 				body.health -= axe_damage
 	else:
 		pass
+
 func spearhit():
 	if spear_timer.is_stopped():
 		spearhitanim.play("Spear")
@@ -68,6 +71,7 @@ func spearhit():
 		pass
 
 func _ready():
+	
 	sword_timer = Timer.new()
 	self.add_child(sword_timer)
 	sword_timer.wait_time = 0.5
@@ -82,7 +86,7 @@ func _ready():
 	self.add_child(spear_timer)
 	spear_timer.wait_time = 0.2
 	spear_timer.one_shot = true
-	
+
 	$Sword.hide()
 	$Axe.hide()
 	$Water.hide()
@@ -182,4 +186,12 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("right_click"):
 		pass
-		
+
+	if torch == false and Input.is_action_pressed("torch"):
+		$Torch.show()
+		torch = true
+		print("1")
+	if torch == true and Input.is_action_pressed("torch"):
+		$Torch.hide()
+		torch = false
+		print("2")

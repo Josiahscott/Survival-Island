@@ -29,7 +29,6 @@
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
-background_color = Color( 0.72549, 0.956863, 1, 1 )
 
 [node name="World" type="Spatial"]
 
@@ -37,7 +36,8 @@ background_color = Color( 0.72549, 0.956863, 1, 1 )
 environment = SubResource( 1 )
 
 [node name="OmniLight" type="OmniLight" parent="WorldEnvironment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.6802, -47.5112 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.6802, -62.73 )
+visible = false
 light_energy = 1.34
 shadow_bias = 0.8
 omni_range = 211.6

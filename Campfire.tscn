@@ -56,7 +56,7 @@ light_color = Color( 1, 0.662745, 0.231373, 1 )
 light_energy = 2.0
 omni_range = 6.73358
 
-[node name="CPUParticles" type="CPUParticles" parent="."]
+[node name="FIRE" type="CPUParticles" parent="."]
 amount = 25
 lifetime = 0.5
 speed_scale = 0.1
@@ -65,7 +65,7 @@ gravity = Vector3( 0, 9.8, 0 )
 initial_velocity = 1.0
 initial_velocity_random = 1.0
 
-[node name="CPUParticles2" type="CPUParticles" parent="."]
+[node name="CPUParticles2" type="CPUParticles" parent="FIRE"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0101783 )
 amount = 30
 speed_scale = 0.05
