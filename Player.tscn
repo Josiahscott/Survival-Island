@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://AdventureModelsSynty/SM_Wep_Sword_01.gltf" type="PackedScene" id=2]
@@ -18,7 +18,7 @@ mid_height = 1.5
 [sub_resource type="CylinderShape" id=3]
 radius = 0.635178
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Spear"
 length = 0.45
 step = 0.01
@@ -47,8 +47,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0.6959, 0.65508, -0.910034 ), Vector3( 0.6959, 0.616781, -1.04284 ), Vector3( 0.6959, 0.57767, -1.21114 ), Vector3( 0.6959, 0.616781, -1.04284 ), Vector3( 0.6959, 0.65508, -0.910034 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Sword"
+[sub_resource type="Animation" id=5]
 length = 0.3
 step = 0.01
 tracks/0/type = "value"
@@ -92,6 +91,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( -3.79217e-05, 75.329, -52.213 ), Vector3( -3.79217e-05, 75.329, -52.213 ), Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( 35.3626, 71.9067, -62.9206 ), Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( 63.933, 118.126, -55.5485 ), Vector3( 35.3626, 90.6357, -62.9206 ) ]
 }
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 2.87256, 2.2551, 2.63706 )
 
 [node name="Player" type="KinematicBody" groups=[
 "Player",
@@ -137,6 +139,7 @@ transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612727, -1.054
 
 [node name="Axe" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.0946751, 0.394327, 0.91408, -0.804147, 0.51098, -0.303722, -0.586843, -0.76381, 0.268719, 0.618, 0.562461, -0.417878 )
+visible = false
 
 [node name="Spear" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.5, 0, 0, 0, 0.288409, 0.408437, 0, -0.408437, 0.288409, 0.6959, 0.65508, -0.910034 )
@@ -148,14 +151,19 @@ transform = Transform( 0.155185, 0.200156, 0.967396, -0.790294, 0.612728, 0, -0.
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.669061, 0.472126, -0.649914 )
 
 [node name="Spearhit" type="AnimationPlayer" parent="."]
-anims/Spear = SubResource( 5 )
+anims/Spear = SubResource( 4 )
 
 [node name="SwordHit" type="AnimationPlayer" parent="." groups=[
 "swordhit",
 ]]
-anims/Sword = SubResource( 4 )
+anims/Sword = SubResource( 5 )
 
 [node name="axeswing" type="AnimationPlayer" parent="."]
 anims/axeswing_anim = SubResource( 6 )
+
+[node name="hitbox" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="hitbox"]
+shape = SubResource( 7 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

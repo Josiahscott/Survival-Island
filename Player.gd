@@ -1,8 +1,14 @@
 extends KinematicBody
 
-var sword_damage = 40
-var axe_damage = 100
-var spear_damage = 20
+var sword_damage = 20
+var axe_damage = 50
+var spear_damage = 10
+
+onready var hitbox = get_node("hitbox")
+onready var blood_splatter = preload("res://Blood.tscn")
+var sword_timer : Timer
+var axe_timer : Timer
+var spear_timer : Timer
 
 var speed = 0.3
 var acceleration = 10
@@ -23,15 +29,60 @@ onready var swordhitanim = $SwordHit
 onready var axehitanim = $axeswing
 onready var spearhitanim = $Spearhit
 func swordhit():
-	swordhitanim.play("Sword")
+	if sword_timer.is_stopped():
+		swordhitanim.play("Sword")
+		sword_timer.start()
+		for body in hitbox.get_overlapping_bodies():
+			if body.is_in_group("Enemy"):
+
+				var b = blood_splatter.instance()
+				b.global_transform.origin = body.global_transform.origin
+				get_tree().get_root().add_child(b)
+				body.health -= sword_damage
+	else:
+		pass
 
 func axehit():
-	axehitanim.play("axeswing_anim")
-
+	if axe_timer.is_stopped():
+		axehitanim.play("axeswing_anim")
+		axe_timer.start()
+		for body in hitbox.get_overlapping_bodies():
+			if body.is_in_group("Enemy"):
+				var b = blood_splatter.instance()
+				b.global_transform.origin = body.global_transform.origin
+				get_tree().get_root().add_child(b)
+				body.health -= axe_damage
+	else:
+		pass
 func spearhit():
-	spearhitanim.play("Spear")
+	if spear_timer.is_stopped():
+		spearhitanim.play("Spear")
+		spear_timer.start()
+		for body in hitbox.get_overlapping_bodies():
+			if body.is_in_group("Enemy"):
+				var b = blood_splatter.instance()
+				b.global_transform.origin = body.global_transform.origin
+				get_tree().get_root().add_child(b)
+				body.health -= spear_damage
+	else:
+		pass
 
 func _ready():
+	sword_timer = Timer.new()
+	self.add_child(sword_timer)
+	sword_timer.wait_time = 0.5
+	sword_timer.one_shot = true
+	
+	axe_timer = Timer.new()
+	self.add_child(axe_timer)
+	axe_timer.wait_time = 1.2
+	axe_timer.one_shot = true
+	
+	spear_timer = Timer.new()
+	self.add_child(spear_timer)
+	spear_timer.wait_time = 0.2
+	spear_timer.one_shot = true
+	
 	$Sword.hide()
 	$Axe.hide()
 	$Water.hide()

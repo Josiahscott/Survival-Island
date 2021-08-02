@@ -1,7 +1,7 @@
 extends KinematicBody
 
 export var speed = 100
-
+var health = 100
 var shoot = null
 var target = null
 var velocity = Vector3.ZERO
@@ -34,3 +34,6 @@ func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
 	move_and_slide(direction * speed * delta, Vector3.UP)
 
+func _process(delta):
+	if health <= 0:
+		queue_free()
