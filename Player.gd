@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var torch = true
+var torch = false
 var sword_damage = 20
 var axe_damage = 50
 var spear_damage = 10
@@ -10,6 +10,7 @@ onready var blood_splatter = preload("res://Blood.tscn")
 var sword_timer : Timer
 var axe_timer : Timer
 var spear_timer : Timer
+var torch_timer : Timer
 
 var speed = 0.3
 var acceleration = 10
@@ -87,17 +88,21 @@ func _ready():
 	spear_timer.wait_time = 0.2
 	spear_timer.one_shot = true
 
+	torch_timer = Timer.new()
+	self.add_child(torch_timer)
+	torch_timer.wait_time = 0.5
+	torch_timer.one_shot = true
+
 	$Sword.hide()
 	$Axe.hide()
 	$Water.hide()
 	$Apple.hide()
 	$Spear.hide()
+	$Torch.hide()
 	prev_pos = global_transform.origin
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-#	if Input.is_action_pressed("escape"):
-#		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	
 func _input(event):
 	
@@ -187,11 +192,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed("right_click"):
 		pass
 
-	if torch == false and Input.is_action_pressed("torch"):
-		$Torch.show()
-		torch = true
-		print("1")
-	if torch == true and Input.is_action_pressed("torch"):
-		$Torch.hide()
-		torch = false
-		print("2")
+	if Input.is_action_just_pressed("torch"):
+		if torch == false:
+			torch = true
+			$Torch.show()
+		elif torch == true:
+			torch = false
+			$Torch.hide()
+			
