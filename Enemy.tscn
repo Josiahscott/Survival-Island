@@ -15,6 +15,7 @@ height = 1.39525
 [node name="Enemy" type="KinematicBody" groups=[
 "Enemy",
 ]]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 script = ExtResource( 1 )
 
 [node name="Mesh" type="MeshInstance" parent="."]

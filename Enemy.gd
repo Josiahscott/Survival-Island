@@ -37,3 +37,4 @@ func move_to_target(delta):
 func _process(delta):
 	if health <= 0:
 		queue_free()
+

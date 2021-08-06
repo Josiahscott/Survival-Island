@@ -39,8 +39,9 @@ func swordhit():
 		for body in hitbox.get_overlapping_bodies():
 			if body.is_in_group("Enemy"):
 				var b = blood_splatter.instance()
-				b.global_transform.origin = body.global_transform.origin
-				get_tree().get_root().add_child(b)
+				b.global_transform = global_transform
+				get_parent().add_child(b)
+				b.set_emitting(true)
 				body.health -= sword_damage
 	else:
 		pass
@@ -52,8 +53,9 @@ func axehit():
 		for body in hitbox.get_overlapping_bodies():
 			if body.is_in_group("Enemy"):
 				var b = blood_splatter.instance()
-				b.global_transform.origin = body.global_transform.origin
-				get_tree().get_root().add_child(b)
+				b.global_transform = global_transform
+				get_parent().add_child(b)
+				b.set_emitting(true)
 				body.health -= axe_damage
 	else:
 		pass
@@ -65,8 +67,9 @@ func spearhit():
 		for body in hitbox.get_overlapping_bodies():
 			if body.is_in_group("Enemy"):
 				var b = blood_splatter.instance()
-				b.global_transform.origin = body.global_transform.origin
-				get_tree().get_root().add_child(b)
+				b.global_transform = global_transform
+				get_parent().add_child(b)
+				b.set_emitting(true)
 				body.health -= spear_damage
 	else:
 		pass
