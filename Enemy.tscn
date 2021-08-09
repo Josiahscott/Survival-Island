@@ -17,6 +17,7 @@ height = 1.39525
 ]]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 script = ExtResource( 1 )
+speed = null
 
 [node name="Mesh" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -38,16 +39,10 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 4 )
 
-[node name="Timershoot" type="Timer" parent="."]
-one_shot = true
-
-[node name="Shooter" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01425, -1.46232 )
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656937, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, -10 )
-
-[node name="Launcher" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01425, -1.46232 )
 
 [connection signal="area_entered" from="Area2" to="." method="_on_Area2_area_entered"]
 [connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]

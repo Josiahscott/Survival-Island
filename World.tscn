@@ -20892,4 +20892,4 @@ transform = Transform( 0.0960175, 0, -0.0719767, 0, 0.12, 0, 0.0719767, 0, 0.096
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 7.50276, 1.93875, 11.554 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.1333, 2.33028, -21.6689 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.385, 2.38372, -21.5996 )

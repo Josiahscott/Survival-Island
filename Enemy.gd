@@ -5,16 +5,23 @@ var health = 100
 var shoot = null
 var target = null
 var velocity = Vector3.ZERO
-
+var shoot_timer : Timer
 onready var player = owner.get_node("Player")
-
+onready var shoottimer = $ShootTimer
+onready var raycast = $RayCast
 func _physics_process(delta):
 	if target:
 		look_at(target.global_transform.origin, Vector3.UP)
 		rotation.x = 0
 		rotation.z = 0
 		move_to_target(delta)
-	
+		if shoot_timer == 0:
+			print("HIT!")
+			shoot_timer.start()
+		elif shoot_timer > 0:
+			pass
+
+		
 	var player_distance = translation.distance_to(player.translation)
 	if player_distance < 2.5:
 		target = player
@@ -38,3 +45,10 @@ func _process(delta):
 	if health <= 0:
 		queue_free()
 
+
+func _ready():
+	shoot_timer = Timer.new()
+	self.add_child(shoot_timer)
+	shoot_timer.wait_time = 0.5
+	shoot_timer.one_shot = true
+	
