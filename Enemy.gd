@@ -10,16 +10,16 @@ onready var player = owner.get_node("Player")
 onready var shoottimer = $ShootTimer
 onready var raycast = $RayCast
 func _physics_process(delta):
-	if target:
+	if target: 
 		look_at(target.global_transform.origin, Vector3.UP)
 		rotation.x = 0
 		rotation.z = 0
 		move_to_target(delta)
-		if shoot_timer == 0:
+		if shoot_timer.is_stopped():
 			print("HIT!")
+			PlayerStats.change_health(-5)
 			shoot_timer.start()
-		elif shoot_timer > 0:
-			pass
+
 
 		
 	var player_distance = translation.distance_to(player.translation)
@@ -35,7 +35,7 @@ func _physics_process(delta):
 	
 func _on_Area2_body_entered(body):
 	if body.is_in_group("Player"):
-		PlayerStats.change_health(-5)
+		PlayerStats.change_health(-12)
 
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
@@ -49,6 +49,6 @@ func _process(delta):
 func _ready():
 	shoot_timer = Timer.new()
 	self.add_child(shoot_timer)
-	shoot_timer.wait_time = 0.5
+	shoot_timer.wait_time = 3
 	shoot_timer.one_shot = true
 	
