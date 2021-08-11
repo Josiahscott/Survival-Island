@@ -2,11 +2,12 @@ extends Control
  
 
 func _ready():
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("esc"):
 		get_tree().quit()
 
 func _on_Play_pressed():
 	print("PLAY")
+	get_tree().change_scene("res://World.tscn")
 
 func _on_Controls_pressed():
 	pass # Replace with function body.

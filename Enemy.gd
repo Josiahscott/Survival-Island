@@ -1,6 +1,6 @@
 extends KinematicBody
 
-export var speed = 50
+export var speed = 30
 var health = 100
 var shoot = null
 var target = null
@@ -9,9 +9,14 @@ var shoot_timer : Timer
 onready var player = owner.get_node("Player")
 onready var shoottimer = $ShootTimer
 onready var raycast = $RayCast
-var gravity = 0.2
+
+var gravity = 0
+
 
 func _physics_process(delta):
+	
+	var fps = Performance.get_monitor(Performance.TIME_FPS)
+	
 	if target: 
 		#RUN ANIMATION
 		look_at(target.global_transform.origin, Vector3.UP)
@@ -33,11 +38,10 @@ func _physics_process(delta):
 		target = null
 		#RUN IDLE
 		
-		
+
 	velocity.y -= gravity *delta
 	velocity = move_and_slide(velocity, Vector3.UP)
 
-	
 func _on_Area2_body_entered(body):
 	if body.is_in_group("Player"):
 		PlayerStats.change_health(-12)
@@ -45,6 +49,7 @@ func _on_Area2_body_entered(body):
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
 	move_and_slide(direction * speed * delta, Vector3.UP)
+
 
 func _process(delta):
 	if health <= 0:
