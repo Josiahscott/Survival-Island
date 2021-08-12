@@ -20899,7 +20899,3 @@ transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 7.50276, 1.93875, 11.554
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3653, 2.1525, -23.8213 )
-
-[node name="Navigation" type="Navigation" parent="."]
-
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
