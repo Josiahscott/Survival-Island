@@ -49,6 +49,7 @@ func _on_Area2_body_entered(body):
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
 	move_and_slide(direction * speed * delta, Vector3.UP)
+	#RAY CAST IF NOT ON GORUND
 
 
 func _process(delta):

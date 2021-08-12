@@ -19,7 +19,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.97
 shape = SubResource( 1 )
 
 [node name="RayCast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0779363, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04912, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, -10 )
 
@@ -29,6 +29,8 @@ shape = SubResource( 1 )
 
 [node name="Body" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, 0, 0, 0 )
+
+[node name="Down" type="RayCast" parent="."]
 
 [connection signal="area_entered" from="Area2" to="." method="_on_Area2_area_entered"]
 [connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]
