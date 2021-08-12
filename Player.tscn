@@ -7,19 +7,16 @@
 [ext_resource path="res://ITEMS/Apple.gltf" type="PackedScene" id=5]
 [ext_resource path="res://ITEMS/Spear.gltf" type="PackedScene" id=6]
 [ext_resource path="res://Torch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Charaters/Player.glb" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
 height = 1.5
 
-[sub_resource type="CapsuleMesh" id=2]
-radius = 0.5
-mid_height = 1.5
-
-[sub_resource type="CylinderShape" id=3]
+[sub_resource type="CylinderShape" id=2]
 radius = 0.635178
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Spear"
 length = 0.45
 step = 0.01
@@ -48,7 +45,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0.6959, 0.65508, -0.910034 ), Vector3( 0.6959, 0.616781, -1.04284 ), Vector3( 0.6959, 0.57767, -1.21114 ), Vector3( 0.6959, 0.616781, -1.04284 ), Vector3( 0.6959, 0.65508, -0.910034 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.3
 step = 0.01
 tracks/0/type = "value"
@@ -64,7 +61,7 @@ tracks/0/keys = {
 "values": [ Vector3( 6.04263e-06, 75.329, -52.213 ), Vector3( 6.04263e-06, 75.329, -52.213 ), Vector3( 10.7695, 75.0599, -55.0674 ), Vector3( 30.9414, 85.9513, -56.4904 ), Vector3( 49.1414, 100.596, -56.678 ), Vector3( 68.2551, 123.269, -47.0449 ), Vector3( 73.1093, 130.625, -58.8719 ), Vector3( 50.1687, 107.04, -89.7857 ), Vector3( 6.04263e-06, 75.329, -52.213 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "axeswing_anim"
 length = 0.5
 step = 0.01
@@ -93,7 +90,7 @@ tracks/1/keys = {
 "values": [ Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( -3.79217e-05, 75.329, -52.213 ), Vector3( -3.79217e-05, 75.329, -52.213 ), Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( 35.3626, 71.9067, -62.9206 ), Vector3( 35.3626, 90.6357, -62.9206 ), Vector3( 63.933, 118.126, -55.5485 ), Vector3( 35.3626, 90.6357, -62.9206 ) ]
 }
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 0.961283, 1.38482, 2.16196 )
 
 [node name="Player" type="KinematicBody" groups=[
@@ -106,15 +103,14 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="Player" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 0, 0 )
 
 [node name="Head" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81661, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.170542 )
 keep_aspect = 0
 fov = 100.0
 far = 1417.7
@@ -133,7 +129,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 
 [node name="CollisionShape2" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sword" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612727, -1.05464e-07, -0.59275, -0.764527, 0.253268, 0.618363, 0.440227, -0.583413 )
@@ -151,15 +147,15 @@ transform = Transform( 0.155185, 0.200156, 0.967396, -0.790294, 0.612728, 0, -0.
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.669061, 0.472126, -0.649914 )
 
 [node name="Spearhit" type="AnimationPlayer" parent="."]
-anims/Spear = SubResource( 4 )
+anims/Spear = SubResource( 3 )
 
 [node name="SwordHit" type="AnimationPlayer" parent="." groups=[
 "swordhit",
 ]]
-anims/Sword = SubResource( 5 )
+anims/Sword = SubResource( 4 )
 
 [node name="axeswing" type="AnimationPlayer" parent="."]
-anims/axeswing_anim = SubResource( 6 )
+anims/axeswing_anim = SubResource( 5 )
 
 [node name="Torch" parent="." instance=ExtResource( 7 )]
 
@@ -167,6 +163,6 @@ anims/axeswing_anim = SubResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="hitbox"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.93091 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
