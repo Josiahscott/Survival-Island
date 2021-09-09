@@ -1,57 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=2 format=2]
 
-[sub_resource type="CubeMesh" id=12]
-
-[sub_resource type="SpatialMaterial" id=9]
-albedo_color = Color( 1, 0.423529, 0, 1 )
-emission_enabled = true
-emission = Color( 1, 1, 1, 1 )
-emission_energy = 0.25
-emission_operator = 0
-emission_on_uv2 = false
-
-[sub_resource type="CubeMesh" id=13]
-material = SubResource( 9 )
-size = Vector3( 0.025, 0.025, 0.025 )
-
-[sub_resource type="SpatialMaterial" id=11]
-emission_enabled = true
-emission = Color( 1, 1, 1, 1 )
-emission_energy = 0.1
-emission_operator = 0
-emission_on_uv2 = false
-
-[sub_resource type="CubeMesh" id=14]
-material = SubResource( 11 )
-size = Vector3( 0.04, 0.04, 0.04 )
+[ext_resource path="res://Torch.glb" type="PackedScene" id=1]
 
 [node name="Torch" type="Spatial"]
 
-[node name="fire2" type="CSGMesh" parent="."]
-transform = Transform( 0.05, 0, 0, 0, 0.4, 0, 0, 0, 0.05, -0.606985, 0.327501, -0.757803 )
-mesh = SubResource( 12 )
+[node name="Torch" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.00242e-08, 4.35117e-09, -0.25, 0.0995432, 0.229328, 0, 0.229328, -0.0995432, -1.09278e-08, -0.662003, 0.204737, -0.766065 )
 
-[node name="OmniLight" type="OmniLight" parent="fire2"]
-transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 6.66667, -1.25238, -0.058548, -0.00983524 )
+[node name="OmniLight" type="OmniLight" parent="Torch"]
+transform = Transform( 4, 1.19209e-07, 0, -1.19209e-07, 4, 0, 0, 0, 4, 0.391676, 2.58366, -0.0666316 )
 light_color = Color( 1, 0.666667, 0.341176, 1 )
 light_energy = 1.35
 omni_range = 6.44852
-
-[node name="FIRE" type="CPUParticles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630462, 0.747739, -0.767947 )
-amount = 25
-lifetime = 0.5
-speed_scale = 0.1
-mesh = SubResource( 13 )
-gravity = Vector3( 0, 9.8, 0 )
-initial_velocity = 1.0
-initial_velocity_random = 1.0
-
-[node name="CPUParticles2" type="CPUParticles" parent="FIRE"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0101783 )
-amount = 30
-speed_scale = 0.05
-mesh = SubResource( 14 )
-gravity = Vector3( 0, 9.8, 0 )
-initial_velocity = 1.0
-initial_velocity_random = 1.0
