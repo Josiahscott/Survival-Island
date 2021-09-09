@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 func _on_Area2_body_entered(body):
 	if body.is_in_group("Player"):
-		PlayerStats.change_health(-12)
+		PlayerStats.change_health(0)
 
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
