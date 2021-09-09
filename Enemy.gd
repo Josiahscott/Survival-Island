@@ -10,7 +10,7 @@ onready var player = owner.get_node("Player")
 onready var shoottimer = $ShootTimer
 onready var raycast = $RayCast
 
-var gravity = 0
+var gravity = 1
 
 
 func _physics_process(delta):
@@ -40,7 +40,7 @@ func _physics_process(delta):
 		
 
 	velocity.y -= gravity *delta
-	velocity = move_and_slide(velocity, Vector3.UP)
+	velocity = move_and_slide(velocity, Vector3.UP,true)
 
 func _on_Area2_body_entered(body):
 	if body.is_in_group("Player"):

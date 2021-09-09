@@ -203,3 +203,7 @@ func _physics_process(delta):
 			torch = false
 			$Torch.hide()
 			
+
+func _process(delta):
+	if Input.is_action_pressed("esc"):
+		get_tree().quit()

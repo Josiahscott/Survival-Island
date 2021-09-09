@@ -11,10 +11,11 @@
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
-height = 1.5
+height = 2.10176
 
 [sub_resource type="CylinderShape" id=2]
 radius = 0.635178
+height = 5.11687
 
 [sub_resource type="Animation" id=3]
 resource_name = "Spear"
@@ -100,14 +101,15 @@ collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0081389, 0 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 transform = Transform( -0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 0, 0 )
+visible = false
 
 [node name="Head" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81661, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29668, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.170542 )
@@ -128,14 +130,14 @@ enabled = true
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -6.05965e-10, -0.0138628 )
 shape = SubResource( 2 )
 
 [node name="Sword" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.155184, 0.200156, 0.967396, -0.790294, 0.612727, -1.05464e-07, -0.59275, -0.764527, 0.253268, 0.618363, 0.440227, -0.583413 )
 
 [node name="Axe" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.0946751, 0.394327, 0.91408, -0.804147, 0.51098, -0.303722, -0.586843, -0.76381, 0.268719, 0.618, 0.562461, -0.417878 )
+transform = Transform( -0.520324, 0.253566, 0.815455, -0.726107, 0.371238, -0.578749, -0.44948, -0.893245, -0.00904792, 0.618, 0.44, -0.481344 )
 
 [node name="Spear" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.5, 0, 0, 0, 0.288409, 0.408437, 0, -0.408437, 0.288409, 0.6959, 0.65508, -0.910034 )
@@ -158,6 +160,7 @@ anims/Sword = SubResource( 4 )
 anims/axeswing_anim = SubResource( 5 )
 
 [node name="Torch" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000501752, 0, -0.00269026 )
 
 [node name="hitbox" type="Area" parent="."]
 

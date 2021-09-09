@@ -1,7 +1,7 @@
 extends Control
  
 
-func _ready():
+func _process(delta):
 	if Input.is_action_pressed("esc"):
 		get_tree().quit()
 
@@ -13,5 +13,4 @@ func _on_Controls_pressed():
 	pass # Replace with function body.
 
 func _on_Exit_pressed():
-	if Input.is_action_pressed("move_left"):
-		get_tree().quit()
+	get_tree().quit()
