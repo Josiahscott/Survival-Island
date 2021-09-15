@@ -7,9 +7,10 @@ var target = null
 var velocity = Vector3.ZERO
 var shoot_timer : Timer
 onready var player = owner.get_node("Player")
-onready var shoottimer = $ShootTimer
+#onready var shoottimer = $ShootTimer
 onready var raycast = $RayCast
-
+onready var runanim = $Body/Run
+onready var spearanim = $Body/Spear
 var gravity = 1
 
 
@@ -24,7 +25,7 @@ func _physics_process(delta):
 		rotation.z = 0
 		move_to_target(delta)
 		if shoot_timer.is_stopped():
-			#RUN ANIMATION
+			spearanim.play("CharatersThrowSpear")
 			print("HIT!")
 			PlayerStats.change_health(-5)
 			shoot_timer.start()
@@ -49,6 +50,7 @@ func _on_Area2_body_entered(body):
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
 	move_and_slide(direction * speed * delta, Vector3.UP)
+	runanim.play("CharctersRun")
 	#RAY CAST IF NOT ON GORUND
 
 
@@ -60,6 +62,5 @@ func _process(delta):
 func _ready():
 	shoot_timer = Timer.new()
 	self.add_child(shoot_timer)
-	shoot_timer.wait_time = 3
+	shoot_timer.wait_time = 5
 	shoot_timer.one_shot = true
-
