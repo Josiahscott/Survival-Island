@@ -25,7 +25,7 @@ func _physics_process(delta):
 		rotation.z = 0
 		move_to_target(delta)
 		if shoot_timer.is_stopped():
-#			spearanim.play("CharatersThrowSpear")
+			spearanim.play("CharatersThrowSpear")
 			print("HIT!")
 			PlayerStats.change_health(-5)
 			shoot_timer.start()
