@@ -2,7 +2,9 @@
 
 [resource]
 resource_name = "Run"
-length = 2.91667
+length = 2.917
+loop = true
+step = 1.0
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Skelet/Skeleton:Head")
 tracks/0/interp = 1

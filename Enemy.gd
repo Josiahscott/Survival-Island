@@ -25,7 +25,7 @@ func _physics_process(delta):
 		rotation.z = 0
 		move_to_target(delta)
 		if shoot_timer.is_stopped():
-			spearanim.play("CharatersThrowSpear")
+#			spearanim.play("CharatersThrowSpear")
 			print("HIT!")
 			PlayerStats.change_health(-5)
 			shoot_timer.start()
@@ -48,15 +48,15 @@ func _on_Area2_body_entered(body):
 		PlayerStats.change_health(0)
 
 func move_to_target(delta):
+	runanim.play("CharatersRun")
 	var direction = (target.transform.origin - transform.origin).normalized()
 	move_and_slide(direction * speed * delta, Vector3.UP)
-	runanim.play("CharctersRun")
-	#RAY CAST IF NOT ON GORUND
 
 
 func _process(delta):
 	if health <= 0:
 		queue_free()
+
 
 
 func _ready():
