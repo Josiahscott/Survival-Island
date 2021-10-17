@@ -1,5 +1,6 @@
 extends Control
 
+#sets the stat bars to max
 func _ready():
 	$HealthBar.max_value = PlayerStats.health_max
 	$FoodBar.max_value = PlayerStats.food_max
