@@ -1,5 +1,5 @@
 extends Node
-
+#variable stats
 var health
 var health_max
 var food
@@ -9,7 +9,7 @@ var water_max
 
 var text_display = ""
 
-func _ready():
+func _ready(): #sets stats to 100 (max)
 	health = 100
 	health_max = 100
 	food = 100
@@ -17,6 +17,7 @@ func _ready():
 	water = 100
 	water_max = 100
 
+#changes in stats due to player activity
 func change_health(amount):
 	health += amount
 	health = clamp(health,0, health_max)

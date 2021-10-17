@@ -1,16 +1,7 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	if Input.is_action_pressed("esc"):
-		get_tree().quit()
-
+# when esc is pressed the game in ended when on the death screen
 func _process(delta):
 	if Input.is_action_pressed("esc"):
 		get_tree().quit()
