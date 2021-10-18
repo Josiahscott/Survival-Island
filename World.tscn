@@ -20904,9 +20904,6 @@ transform = Transform( 0.0960175, 0, -0.0719767, 0, 0.12, 0, 0.0719767, 0, 0.096
 [node name="Lava" parent="." instance=ExtResource( 26 )]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 7.50276, 1.93875, 11.554 )
 
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3653, 2.1525, -23.8213 )
-
 [node name="Torches" type="Spatial" parent="."]
 
 [node name="Torch" parent="Torches" instance=ExtResource( 28 )]
@@ -20953,3 +20950,15 @@ transform = Transform( 0.12, 0, 0, 0, 0.109725, -0.0485844, 0, 0.0485844, 0.1097
 
 [node name="Torch15" parent="Torches" instance=ExtResource( 28 )]
 transform = Transform( 0.12, 0, 0, 0, 0.109725, -0.0485844, 0, 0.0485844, 0.109725, 39.3051, 4.10046, 2.59984 )
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3653, 2.1525, -23.8213 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.0441224, 0, 0.0897397, 0, 0.1, 0, -0.0897397, 0, 0.0441224, -32.0977, 2.25224, -20.2153 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -34.3806, 2.14953, -19.265 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.0887582, 0, 0.0460649, 0, 0.1, 0, -0.0460649, 0, -0.0887582, -34.2573, 2.19691, -21.5524 )
