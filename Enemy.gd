@@ -55,6 +55,7 @@ func move_to_target(delta): #moving to the player
 
 func _process(delta):
 	if health <= 0:
+		PlayerStats.score += 1
 		queue_free() #dying when health <= 0
 
 

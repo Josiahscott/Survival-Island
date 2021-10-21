@@ -6,6 +6,7 @@ var food
 var food_max
 var water
 var water_max
+var score = 0
 
 var text_display = ""
 
@@ -16,6 +17,7 @@ func _ready(): #sets stats to 100 (max)
 	food_max = 100
 	water = 100
 	water_max = 100
+
 
 #changes in stats due to player activity
 func change_health(amount):
@@ -30,8 +32,11 @@ func change_water(amount):
 	water += amount
 	water = clamp(water,0, water_max)
 
+
 func get_health():
 	return health
+	
+
 
 func get_food():
 	return food

@@ -200,3 +200,6 @@ func _physics_process(delta):
 func _process(delta):
 	if Input.is_action_pressed("esc"):
 		get_tree().quit()
+		
+
+
