@@ -124,9 +124,18 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="."]
-margin_right = 40.0
+margin_left = 101.0
+margin_right = 170.0
 margin_bottom = 14.0
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Enemies Killed:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
