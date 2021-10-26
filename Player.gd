@@ -167,6 +167,8 @@ func _physics_process(delta):
 		pass #RED BLOOD USERINTERFACE
 	if int(PlayerStats.get_health()) <= 0:
 		get_tree().change_scene("res://Death.tscn")
+	if PlayerStats.score >= 25:
+		get_tree().change_scene("res://Win.tscn")
 		
 	
 	#gravity
