@@ -4,7 +4,7 @@ var torch = false #torch is disabled
 var sword_damage = 20
 var axe_damage = 50 #item damages
 var spear_damage = 10
-onready var torch_item = $torch 
+onready var torch_item = $Torch 
 onready var hitbox = get_node("hitbox") #loading variables 
 onready var blood_splatter = preload("res://Blood.tscn")
 var sword_timer : Timer

@@ -94,9 +94,7 @@ tracks/1/keys = {
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 0.961283, 1.38482, 2.16196 )
 
-[node name="Player" type="KinematicBody" groups=[
-"Player",
-]]
+[node name="Player" type="KinematicBody" groups=["Player"]]
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -151,9 +149,7 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.669061, 0.472126, -0.6
 [node name="Spearhit" type="AnimationPlayer" parent="."]
 anims/Spear = SubResource( 3 )
 
-[node name="SwordHit" type="AnimationPlayer" parent="." groups=[
-"swordhit",
-]]
+[node name="SwordHit" type="AnimationPlayer" parent="." groups=["swordhit"]]
 anims/Sword = SubResource( 4 )
 
 [node name="axeswing" type="AnimationPlayer" parent="."]
