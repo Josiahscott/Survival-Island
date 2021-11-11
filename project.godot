@@ -22,11 +22,15 @@ EnemyStats="*res://Enemy_stats.gd"
 [display]
 
 window/size/width=1000
-window/size/height=562
+window/size/height=560
 
 [editor_plugins]
 
 enabled=PoolStringArray(  )
+
+[global]
+
+display=false
 
 [input]
 
